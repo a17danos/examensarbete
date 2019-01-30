@@ -1,0 +1,15 @@
+\section{Metod}
+
+För att besvara frågeställningen kommer ett experiment i form av ett prestandajämförelse ''benchmarking'' genomföras på liknande sätt som tidigare gjorts av \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} och \textcite{Zakai2018}. Enligt \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} är ett experiment lämpligt för att precist och systematiskt mäta något i en kontrollerad miljö.
+
+Testsviten JetStream kommer att köras på de senaste versionerna av webbläsarna Chrome, Edge, Firefox och Safari. Resultaten kommer användas som en baslinje. JetStream är i grunden en pletora av tester. Flera av dem är ursprungligen skrivna i C/C++ och kompilerade till JavaScript med Emscripten för att kunna inkluderas i JetStream och köras i webbläsare. Varje test i JetStream kommer kompileras till WebAssembly med Emscripten. De kompilerade testerna kommer publiceras på Github\footnote{http://github.com/danieloskarsson/webassembly/jetstream}. Dessa tester kommer sedan köras på samma webbläsare som motsvarande JavaScript-tester. Resultaten kommer att utvärderas statistiskt med ANOVA för att besvara frågeställningen.
+
+Testerna kommer att köras två gånger, en gång på den senaste versionen av Windows och en gång på den senaste versionen av macOS. Eftersom Safari endast finns för macOS och Edge endast finns för Windows kommer testerna endast att köras en gång i dessa båda webbläsare.
+
+Operativsystemen kommer att köras på samma dator där Windows kommer installeras med hjälp av BootCamp\footnote{https://support.apple.com/boot-camp}. De båda operativsystemen kommer att vara helt nyinstallerade och fått stå oanvända i 24 timmar för att testerna inte skall påverkas av indexering av filer som uppstår i samband med en nyinstallation. Samtliga tester kommer att köras med strömsladden inkopplad och datorn kommer inte vara uppkopplad till internet. 
+
+Metoden avses vara utformad för hög intern validitet med så få bakomliggande variabler som möjligt, samt för hög extern validitet. JetStream är en samling av tester som plockats från andra testsviter. Testerna körs $1 000$ gånger (i rad) i syfte att ge en hög reliabilitet.
+
+För att besvara problemformuleringen används en \emph{kvantiativ} metod som går ut på att genomföra en syntetisk prestandajämförelse. Som ett komplementt eller som ersättning till en \emph{syntetiska} prestandajämförelse skulle ett riktigt JavaScript-projekt kunna konverteras till WebAssembly och studeras. Prestandajämförelser räcker för att besvara den valda frågeställningen och dess hypotes, men är inte tillräckligt för att holistiskt beskriva skillnader mellan JavaScript och WebAssembly.  
+
+För att beskriva fler skillnader behövs fler frågeställningar och för att få ett svar på frågeställningar som huruvida en given teknik är användbar eller på vilket sätt sätt en given teknik kan nyttjas bör \emph{kvalitatitva} metoder användas. Kvalitatitva metoder skulle kunna ge ett större perspektiv på WebAssembly och föreslås som framtida arbete.

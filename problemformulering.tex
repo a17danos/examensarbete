@@ -1,0 +1,8 @@
+\section{Problemformulering}
+
+%Syftet är att jämföra JavaScript och WebAssembly.
+Frågeställningen är att avgöra om det finns en signifikant skillnad i prestanda mellan WebAssembly och JavaScript i webbläsarna Chrome, Edge, Firefox och Safari på Windows och macOS. Hypotesen är att det finns en signifikant skillnad ($\alpha = 0,01$) i prestanda mellan WebAssembly och JavaScript.
+
+Prestanda hos WebAssembly har undersökts tidigare. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} använder Polyhedral Benchmark suite\footnote{http://web.cs.ucla.edu/~pouchet/software/polybench/} (PolyBench/C) för att jämföra exekveringstiden mellan nativ kod och WebAssembly. De använder sig av Emscripten för att generera WebAssembly och Clang \parencite{LattnerAdve2014} för att kompilera vanliga applikationer och jämför sedan exekveringstiden hos de två \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. \textcite{ReiserBlaser2017} använder egen JavaScript-implementation, som bedömer om ett givet tal är ett primtal eller inte, för att jämföra exekveringstiden mellan JavaScript och WebAssembly. De använder sig av en egen kompilator (speedy.js) för att kompilera \emph{samma} JavaScript-kod till WebAssembly och jämför sedan exekveringstiden hos WebAssembly och motsvarande JavaScript-motor.
+
+Ingen tycks tidigare ha undersökt skillnaden i prestanda mellan WebAssembly och JavaScript med hjälp av någon av de sviter av tester som traditionellt används för att testa dagens JavaScript-motorer, exempelvis JetStream\footnote{https://www.browserbench.org/JetStream/}.
