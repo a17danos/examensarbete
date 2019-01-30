@@ -1,34 +1,35 @@
-
 \NeedsTeXFormat{LaTeX2e}
-
-\ProvidesClass{rapport}[2017/08/17 HiSReport]
+\ProvidesClass{his}[2017/08/17 HiSReportModified]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-
-\newcommand{\beautifylistofauthors}[5]{%
-\ifthenelse{\equal{#2}{}}{\hypersetup{pdfauthor={#1}}}{\ifthenelse{\equal{#3}{}}{\hypersetup{pdfauthor={#1 and #2}}}{\ifthenelse{\equal{#4}{}}{\hypersetup{pdfauthor={#1, #2, and #3}}}{\ifthenelse{\equal{#5}{}}{\hypersetup{pdfauthor={#1, #2, #3, and #4}}}{\hypersetup{pdfauthor={#1, #2, #3, #4, and #5}}}}}}%
-}
-
-\DeclareOption{english}{%
-\PassOptionsToClass{\CurrentOption}{babel}%
-}
-\DeclareOption{swedish}{%
-\PassOptionsToClass{\CurrentOption}{babel}%
-\renewcommand{\beautifylistofauthors}[5]{%
-\ifthenelse{\equal{#2}{}}{\hypersetup{pdfauthor={#1}}}{\ifthenelse{\equal{#3}{}}{\hypersetup{pdfauthor={#1 och #2}}}{\ifthenelse{\equal{#4}{}}{\hypersetup{pdfauthor={#1, #2 och #3}}}{\ifthenelse{\equal{#5}{}}{\hypersetup{pdfauthor={#1, #2, #3 och #4}}}{\hypersetup{pdfauthor={#1, #2, #3, #4 och #5}}}}}}%
-}
-}
-
 \newcommand{\labelExaminer}{Examiner}
 \newcommand{\labelSupervisor}{Supervisor}
 \DeclareOption{swedish}{%
 \renewcommand{\labelExaminer}{Examinator}
 \renewcommand{\labelSupervisor}{Handledare}
 }
-
 \ProcessOptions
 
 \LoadClass[12pt]{article}
+
+\RequirePackage[style=authoryear,url=false,doi=false,isbn=false,dashed=false,
+            mincitenames=3, maxbibnames=99,
+            uniquename=init,giveninits=true,
+            backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+% Enforce to have always a lastname-comma-firstname layout
+\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{default}{last-first}
+% Use ampersand as last author names separator
+\AtBeginBibliography{%
+  \renewcommand*{\finalnamedelim}{%
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+    \addspace\&\space}
+}
+% Set the parencite context specifically to use an ampersand
+\DeclareDelimFormat[parencite]{finalnamedelim}{%
+  \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+  \addspace\&\space}
 
 \RequirePackage[a4paper,margin=2.5cm]{geometry}
 \RequirePackage[pdftex]{graphicx}
@@ -37,24 +38,19 @@
 \RequirePackage{ifxetex}
 \RequirePackage{ifluatex}
 \ifxetex
-  % code used only by xetex
   \RequirePackage[no-math]{fontspec}
   \defaultfontfeatures{Ligatures=TeX}
   \setmonofont[Scale=0.825]{DejaVu Sans Mono}
   \setsansfont{Nimbus Sans L}
-  % \setmainfont{TeX Gyre Termes}% based on Nimbus Roman
   \setmainfont{Georgia}
 \else
   \ifluatex
-    % code used only by luatex
     \RequirePackage[no-math]{fontspec}
     \defaultfontfeatures{Ligatures=TeX}
     \setmonofont[Scale=0.825]{DejaVu Sans Mono}
     \setsansfont{Nimbus Sans L}
-    % \setmainfont{TeX Gyre Termes}% based on Nimbus Roman
     \setmainfont{Georgia}
   \else
-    % code used by neither luatex nor xetex
     \RequirePackage[utf8]{inputenc}
     \RequirePackage[T1]{fontenc}
     \RequirePackage[scaled=0.825]{DejaVuSansMono}
@@ -63,50 +59,15 @@
   \fi
 \fi
 
-
-% Package to handle conditions
 \RequirePackage{ifthen}
-
-% Package to handle conditions
 \RequirePackage{ragged2e}
-
-
-% \RequirePackage{tikz}
-% \usetikzlibrary{positioning}
-
 \RequirePackage{eso-pic}
 \RequirePackage{kvoptions}
 \RequirePackage{optparams}
 
 \newcommand{\figref}[1]{Fig.\,\ref{#1}}
 \newcommand{\tabref}[1]{Tab.\,\ref{#1}}
-
-
-
 \newcommand{\missingparam}[1]{\ensuremath{\langle}\textbf{\textbackslash{}#1}{\normalfont\ missing}\ensuremath{\rangle}}
-
-
-\newcommand{\TheAuthorA}{\missingparam{author%
-\ifthenelse{\equal{rapport}{\HiSReporttemplate}}{{\normalfont\ or \textbackslash}authors}{}%
-\ifthenelse{\equal{report}{\HiSReporttemplate}}{{\normalfont\ or \textbackslash}authors}{}%
-}}
-\newcommand{\TheAuthorB}{}
-\newcommand{\TheAuthorC}{}
-\newcommand{\TheAuthorD}{}
-\newcommand{\TheAuthorE}{}
-\long\def\authors@[#1][#2][#3][#4]#5{%
-\renewcommand{\TheAuthorE}{#4}
-\renewcommand{\TheAuthorD}{#3}
-\renewcommand{\TheAuthorC}{#2}
-\renewcommand{\TheAuthorB}{#1}
-\renewcommand{\TheAuthorA}{#5}
-\beautifylistofauthors{#5}{#1}{#2}{#3}{#4}
-}
-\newcommand{\authors}{%
-\optparams{\authors@}{[][][][]}%
-}
-\renewcommand\author[1]{\authors{#1}}
-
 
 \newcommand{\TheTitleAltLang}{}
 \newcommand{\TheTitle}{\missingparam{title}}
@@ -138,11 +99,9 @@
 \newcommand{\TheCourse}{\missingparam{course}}
 \newcommand{\course}[1]{\AtBeginDocument{\renewcommand{\TheCourse}{#1}}}
 
-
 \SetupKeyvalOptions{prefix=HiSReport}
 \DeclareStringOption[rapport]{template}
 \ProcessKeyvalOptions*
-
 
 \renewcommand{\maketitle}{{%
 \setlength{\parindent}{0cm}
@@ -183,8 +142,7 @@
 \TheLevel\\%
 \TheTimeFrame\\[1em]%
 }}%
-\TheAuthorA\\%
-\ifthenelse{\equal{\TheAuthorB}{}}{}{\TheAuthorB\\\ifthenelse{\equal{\TheAuthorC}{}}{}{\TheAuthorC\\\ifthenelse{\equal{\TheAuthorD}{}}{}{\TheAuthorD\\\ifthenelse{\equal{\TheAuthorE}{}}{}{\TheAuthorE\\}}}}
+\@author\\%
 \vspace*{1em}%
 \ifthenelse{\equal{rapport}{\HiSReporttemplate}}{%
 \TheTimeFrame%

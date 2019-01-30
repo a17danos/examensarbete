@@ -1,29 +1,10 @@
 \documentclass[swedish,template=rapport]{his}
-\usepackage[style=authoryear,url=false,doi=false,isbn=false,dashed=false,
-            mincitenames=3, maxbibnames=99, uniquename=init,giveninits=true,% abbreviate authors' first name
-            backend=biber]{biblatex}
 \usepackage[swedish]{babel}
 \usepackage[parfill]{parskip}
+
 \usepackage[tableposition=top]{caption}
 \usepackage{booktabs} % for nice tables
 \usepackage{soulutf8} % for hl
-
-% Enforce to have always a lastname-comma-firstname layout
-\DeclareNameAlias{sortname}{last-first}
-\DeclareNameAlias{default}{last-first}
-
-% Use ampersand as last author names separator
-\AtBeginBibliography{%
-  \renewcommand*{\finalnamedelim}{%
-    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-    \addspace\&\space}
-}
-\addbibresource{bibliography.bib}
-
-% Set the parencite context specifically to use an ampersand
-\DeclareDelimFormat[parencite]{finalnamedelim}{%
-  \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-  \addspace\&\space}
 
 \title{Benchmarking WebAssembly}
 \subtitle{}
