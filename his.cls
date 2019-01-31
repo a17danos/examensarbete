@@ -2,21 +2,37 @@
 \ProvidesClass{his}[2017/08/17 HiSReportModified]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
 \newcommand{\labelExaminer}{Examiner}
 \newcommand{\labelSupervisor}{Supervisor}
+\newcommand{\labelContents}{Table of contents}
+\newcommand{\labelKeywords}{Keywords}
 \DeclareOption{swedish}{%
 \renewcommand{\labelExaminer}{Examinator}
 \renewcommand{\labelSupervisor}{Handledare}
+\renewcommand{\labelContents}{Innehållsförteckning}
+\renewcommand{\labelKeywords}{Nyckelord}
 }
+
 \ProcessOptions
 
 \LoadClass[12pt]{article}
+
+% Format abstract
+\RequirePackage{abstract}
+\renewcommand{\abstractnamefont}{\normalfont\Large\bfseries}
 
 \RequirePackage[style=authoryear,url=false,doi=false,isbn=false,dashed=false,
             mincitenames=3, maxbibnames=99,
             uniquename=init,giveninits=true,
             backend=biber]{biblatex}
 \addbibresource{bibliography.bib}
+
+% Format contents
+\RequirePackage{tocloft}
+\renewcommand\cftsecdotsep{\cftdotsep}
+\renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
+
 % Enforce to have always a lastname-comma-firstname layout
 \DeclareNameAlias{sortname}{last-first}
 \DeclareNameAlias{default}{last-first}

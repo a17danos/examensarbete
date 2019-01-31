@@ -18,21 +18,32 @@
 
 \maketitle
 
-\pagenumbering{roman}
+\begin{abstract}
+    \bigskip
+    \normalsize
+    \subfile{abstract}\\
+    \\
+    \textbf{\labelKeywords:} \subfile{keywords}
+\end{abstract}
+
+\clearpage
+\renewcommand{\contentsname}{\labelContents}
 \tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagenumbering{gobble}
 
 \clearpage
 \pagenumbering{arabic}
-\subfile{introduktion}
+\subfile{introduction}
 
 \clearpage
-\subfile{bakgrund}
+\subfile{background}
 
 \clearpage
-\subfile{problemformulering}
+\subfile{problem}
 
 \clearpage
-\subfile{metod}
+\subfile{method}
 
 \clearpage
 \printbibliography[heading=bibintoc]
