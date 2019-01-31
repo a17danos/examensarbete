@@ -1,3 +1,9 @@
+% his.cls is a LaTeX class for student reports
+% This class is written by Thomas Fischer <thomas.fischer@his.se>
+% and licensed by the Creative Commons Attribution-Share Alike 3.0 License
+% http://creativecommons.org/licenses/by-sa/3.0/
+% It has been adapted by Daniel Oskarsson <a17danos@student.his.se>
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{his}[2017/08/17 HiSReportModified]
 
