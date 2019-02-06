@@ -47,7 +47,9 @@ JavaScript was a major addition to the set of web technologies. It is estimated 
   captionpos=b
 }
 
-\begin{lstlisting}[language=JavaScript2,numbers=left,caption=ccc]
+\clearpage
+
+\begin{lstlisting}[label=lst1,language=JavaScript2,numbers=none,caption=Listing 1,frame=shadowbox]
 Name.prototype = {
     methodName: function(params){
         var doubleQuoteString = "some text";
@@ -64,8 +66,8 @@ Name.prototype = {
 }
 \end{lstlisting}
 
-\clearpage
 \blindtext\\
+Listing \ref{lst1}
 
 \begin{lstlisting}[language=JavaScript2,numbers=none,caption=Listing 2,frame=shadowbox]
 function isPrime(value) {
@@ -79,197 +81,6 @@ function isPrime(value) {
 \end{lstlisting}
 
 \blindtext
-
-\begin{verbatim}
-$ cat > prime.js
-function isPrime(value) {
-    for(var i = 2; i < value; i++) {k
-        if(value % i === 0) {
-            return false;
-        }
-    }
-    return value > 1;
-}
-\end{verbatim}
-
-\begin{verbatim}
-    verb
-\end{verbatim}
-
-\begin{comment}
-\begin{figure}
-    \begin{verbatim}
-        int main()
-        {
-            this is some code
-        }
-    \end{verbatim}
-    \caption{My Caption}
-    \label{my-label}
-\end{figure}
-\end{comment}
-
-\lstset{language=Pascal}
-\begin{lstlisting}[frame=leftline]  % Start your code-block
-for i:=maxint to 0 do
-begin
-{ do nothing }
- end;
-Write('Case insensitive ');
-Write('Pascal keywords.');
-\end{lstlisting}
- 
-\lstset {language=C++}
-\begin{lstlisting}
-for (int i=0; i<iterations;i++) {
-    do something
-}
-\end{lstlisting}
-
-\lstset{language=}
-\begin{lstlisting}[caption=HelloWorld.sh]
-    $ echo 'hello world!'
-\end{lstlisting}
-
-\lstset{ %
-  language=C,                            % choose the language of the code
-  basicstyle=\footnotesize,              % the size of the fonts that are used for the code
-  backgroundcolor=\color{White},         % choose the background color. You must add \usepackage{color}
-  commentstyle=\color{help}\textit,
-  keywordstyle=\color{keyword}\textbf,
-  breaklines=true,                       % sets automatic line breaking
-  breakatwhitespace=true,                % sets if automatic breaks should only happen at whitespace
-  showspaces=false,                      % show spaces adding particular underscores
-  showstringspaces=true,                 % underline spaces within strings
-  showtabs=true,                         % show tabs within strings adding particular underscores
-  frame=none,                              % adds a frame around the code - none, single
-  tabsize=8,                             % sets default tabsize to 8 spaces
-  captionpos=b,                          % sets the caption-position to bottom
-  numbers=left,                          % where to put the line-numbers -none, left, right
-  numberstyle=\footnotesize,             % the size of the fonts that are used for the line-numbers
-  stepnumber=1,                          % the step between two line-numbers. If it's 1 each line
-                                         % will be numbered
-}
-
-\definecolor{keyword}{rgb}{0.65, 0.12, 0.82}
-\definecolor{White}{rgb}{1, 1, 1}
-\lstset{language=c}
-\begin{lstlisting}[caption=HelloWorld.sh2]
-    for (int i=0; i<iterations;i++) {
-        do something
-    }
-\end{lstlisting}
-
-\begin{program}
-\mbox{A fast exponentiation procedure:}
-\BEGIN \\ %
-    \FOR i:=1 \TO 10 \STEP 1 \DO
-        |expt|(2,i); \\ |newline|() \OD %
-\rcomment{This text will be set flush to the right margin}
-\WHERE
-\PROC |expt|(x,n) \BODY
-            z:=1;
-            \DO \IF n=0 \THEN \EXIT \FI;
-                \DO \IF |odd|(n) \THEN \EXIT \FI;
-\COMMENT{This is a comment statement};
-                n:=n/2; x:=x*x \OD;
-                \{ n>0 \};
-                n:=n-1; z:=z*x \OD;
-            |print|(z) \ENDPROC
-\END
-\end{program}
-
-\definecolor{lightgray}{rgb}{.9,.9,.9}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
-
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
-
-\lstdefinelanguage{JS}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]"
-}
-
-\lstset{
-   language=JavaScript,
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
-
-\lstset{language=JS}
-
-\begin{lstlisting}[frame=shadowbox,caption=prime.js,numbers=none]
-Name.prototype = {
-  methodName: function(params){
-    var doubleQuoteString = "some text";
-    var singleQuoteString = 'some more text';
-    // this is a comment
-    if(this.confirmed != null && typeof(this.confirmed) == Boolean && this.confirmed == true){
-      document.createElement('h3');
-      $('#system').append("This looks great");
-      return false;
-    } else {
-      throw new Error;
-    }
-  }
-}
-\end{lstlisting}
-
-
-\begin{lstlisting}[caption=Code,numbers=none]
-    Name.prototype = {
-        methodName: function(params){
-          var doubleQuoteString = "some text";
-          var singleQuoteString = 'some more text';
-          // this is a comment
-          if(this.confirmed != null && typeof(this.confirmed) == Boolean && this.confirmed == true){
-            document.createElement('h3');
-            $('#system').append("This looks great");
-            return false;
-          } else {
-            throw new Error;
-          }
-        }
-      }
-\end{lstlisting}
-
-
-\begin{lstlisting}[title=Figure 3,numbers=none]
-      Source |       SS       df       MS              Number of obs =     198
--------------+------------------------------           F(  3,   194) =    0.62
-       Model |  2.71676158     3  .905587193           Prob > F      =  0.6030
-    Residual |  283.499771   194  1.46133902           R-squared     =  0.0095
--------------+------------------------------           Adj R-squared = -0.0058
-       Total |  286.216532   197   1.4528758           Root MSE      =  1.2089
-\end{lstlisting}
 
 \subsubsection{Optimizing/ations}
 
