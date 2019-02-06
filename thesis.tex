@@ -1,16 +1,31 @@
-\documentclass[swedish,template=rapport]{his}
-\usepackage[swedish]{babel}
+\documentclass[english,template=rapport]{his}
+\usepackage[english]{babel}
 \usepackage[parfill]{parskip}
 \usepackage{subfiles}
-\usepackage[tableposition=top]{caption}
-\usepackage{booktabs} % for nice tables
-\usepackage{soulutf8} % for hl
+%\usepackage[tableposition=top]{caption}
+%\usepackage{booktabs} % for nice tables
+\usepackage{soulutf8}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{program}
+
+\usepackage[T1]{fontenc}
+\usepackage{beramono}
+\usepackage{xcolor}
+
+\usepackage{blindtext}
+
+\usepackage{caption}
+\captionsetup{font=footnotesize,labelfont=bf}
+
+\newcommand\realnumberstyle[1]{}
 
 \title{Benchmarking WebAssembly}
 \subtitle{}
-\course{IT606G - Examensarbete i informationsteknologi med inriktning mot webbprogrammering G2E, 30 hp}
+\course{Bachelor Degree Project in Informatics\\30 ECTS}
 \author{Daniel Oskarsson}
-\timeframe{Vårterminen 2019}
+\timeframe{Spring term 2019}
 \supervisor{Henrik Gustavsson}
 \examiner{Mikael Berndtsson}
 
@@ -27,7 +42,6 @@
 \end{abstract}
 
 \clearpage
-\renewcommand{\contentsname}{\labelContents}
 \tableofcontents
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 \pagenumbering{gobble}

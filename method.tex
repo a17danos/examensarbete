@@ -1,6 +1,8 @@
-\section{Metod}
+\section{Method}
 
 För att besvara frågeställningen kommer ett experiment i form av ett prestandajämförelse ''benchmarking'' genomföras på liknande sätt som tidigare gjorts av \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} och \textcite{Zakai2018}. Enligt \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} är ett experiment lämpligt för att precist och systematiskt mäta något i en kontrollerad miljö.
+
+A new test suite XXX will be developed and executed in the latest versions of the ...
 
 Testsviten JetStream kommer att köras på de senaste versionerna av webbläsarna Chrome, Edge, Firefox och Safari. Resultaten kommer användas som en baslinje. JetStream är i grunden en pletora av tester. Flera av dem är ursprungligen skrivna i C/C++ och kompilerade till JavaScript med Emscripten för att kunna inkluderas i JetStream och köras i webbläsare. Varje test i JetStream kommer kompileras till WebAssembly med Emscripten. De kompilerade testerna kommer publiceras på Github\footnote{http://github.com/danieloskarsson/webassembly/jetstream}. Dessa tester kommer sedan köras på samma webbläsare som motsvarande JavaScript-tester. Resultaten kommer att utvärderas statistiskt med ANOVA för att besvara frågeställningen.
 
