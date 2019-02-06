@@ -2,6 +2,7 @@
 *.pdf
 *.gdoc
 *.aux
+comments.tex
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:

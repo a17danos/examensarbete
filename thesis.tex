@@ -1,16 +1,33 @@
-\documentclass[swedish,template=rapport]{his}
-\usepackage[swedish]{babel}
+\documentclass[english,template=rapport]{his}
+\usepackage[english]{babel}
 \usepackage[parfill]{parskip}
 \usepackage{subfiles}
-\usepackage[tableposition=top]{caption}
-\usepackage{booktabs} % for nice tables
-\usepackage{soulutf8} % for hl
+\usepackage{soulutf8}
+\usepackage{blindtext}
+
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+\lstdefinestyle{customabc}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+\newcommand{\listing}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
+
+%\setcounter{tocdepth}{2}
 
 \title{Benchmarking WebAssembly}
 \subtitle{}
-\course{IT606G - Examensarbete i informationsteknologi med inriktning mot webbprogrammering G2E, 30 hp}
+\course{Bachelor Degree Project in Informatics\\30 ECTS}
 \author{Daniel Oskarsson}
-\timeframe{Vårterminen 2019}
+\timeframe{Spring 2019}
 \supervisor{Henrik Gustavsson}
 \examiner{Mikael Berndtsson}
 
@@ -18,6 +35,7 @@
 
 \maketitle
 
+\begin{comment}
 \begin{abstract}
     \bigskip
     \normalsize
@@ -25,9 +43,9 @@
     \\
     \textbf{\labelKeywords:} \subfile{keywords}
 \end{abstract}
+\end{comment}
 
 \clearpage
-\renewcommand{\contentsname}{\labelContents}
 \tableofcontents
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 \pagenumbering{gobble}
@@ -45,7 +63,23 @@
 \clearpage
 \subfile{method}
 
+%\clearpage
+%\subfile{implementation}
+
+%\clearpage
+%\subfile{evaluation}
+
+%\clearpage
+%\subfile{conclusion}
+
 \clearpage
 \printbibliography[heading=bibintoc]
+
+\begin{comment}
+\clearpage
+\pagestyle{empty}
+\centering
+\includegraphics[width=12.3cm,keepaspectratio]{../Figures/javascript+webassembly}
+\end{comment}
 
 \end{document}

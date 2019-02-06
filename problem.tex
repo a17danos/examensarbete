@@ -1,8 +1,12 @@
-\section{Problemformulering}
+\section{Problem}
+\label{problem}
 
-%Syftet är att jämföra JavaScript och WebAssembly.
-Frågeställningen är att avgöra om det finns en signifikant skillnad i prestanda mellan WebAssembly och JavaScript i webbläsarna Chrome, Edge, Firefox och Safari på Windows och macOS. Hypotesen är att det finns en signifikant skillnad ($\alpha = 0,01$) i prestanda mellan WebAssembly och JavaScript.
+WebAssembly has been benchmarked previously. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} used PolyBenchC, \textcite{JangdaPowersGuhaBerger2019} ported BROWSIX \parencite{PowersVilkBerger2017} to WebAssembly and used the SPEC CPU benchmark suite, and \textcite{ReiserBlaser2017} used eight different cases \parencite[Table 1 in][]{ReiserBlaser2017} to compare JavaScript/asm.js and WebAssembly.
 
-Prestanda hos WebAssembly har undersökts tidigare. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} använder Polyhedral Benchmark suite\footnote{http://web.cs.ucla.edu/~pouchet/software/polybench/} (PolyBench/C) för att jämföra exekveringstiden mellan nativ kod och WebAssembly. De använder sig av Emscripten för att generera WebAssembly och Clang \parencite{LattnerAdve2014} för att kompilera vanliga applikationer och jämför sedan exekveringstiden hos de två \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. \textcite{ReiserBlaser2017} använder egen JavaScript-implementation, som bedömer om ett givet tal är ett primtal eller inte, för att jämföra exekveringstiden mellan JavaScript och WebAssembly. De använder sig av en egen kompilator (speedy.js) för att kompilera \emph{samma} JavaScript-kod till WebAssembly och jämför sedan exekveringstiden hos WebAssembly och motsvarande JavaScript-motor.
+This thesis examines the following question: \textbf{In which cases does WebAssembly provide a significant performance improvement?}
 
-Ingen tycks tidigare ha undersökt skillnaden i prestanda mellan WebAssembly och JavaScript med hjälp av någon av de sviter av tester som traditionellt används för att testa dagens JavaScript-motorer, exempelvis JetStream\footnote{https://www.browserbench.org/JetStream/}.
+The result will be analyzed and evaluated to provide developers with an understanding on where to start when porting real-world frameworks and web applications. To the best of my knowledge no previous research that has addressed the same problem.
+
+\subsection{Hypothesis}
+
+The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript/asm.js in test cases that are inherently static and computational intensive.
