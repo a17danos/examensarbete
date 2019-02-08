@@ -22,6 +22,36 @@
 
 \LoadClass[12pt]{article}
 
+% Support listings
+\RequirePackage{listings}
+\RequirePackage{caption}
+\captionsetup{font=footnotesize,labelfont=bf}
+\lstset{
+    aboveskip=0cm,
+    stringstyle=\ttfamily,
+    showstringspaces = false,
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\color{gray!45},
+    keywordstyle=\bfseries,
+    ndkeywordstyle=\bfseries,
+    identifierstyle=\ttfamily,
+    numbers=left,
+    numbersep=15pt,
+    numberstyle=\tiny,
+    numberfirstline = false,
+    breaklines=true
+}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, const, let, async, await, if, in, while, do, else, case, break, from},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  captionpos=t
+}
+
 % Format abstract
 \RequirePackage{abstract}
 \renewcommand{\abstractnamefont}{\normalfont\Large\bfseries}

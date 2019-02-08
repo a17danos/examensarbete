@@ -4,14 +4,6 @@
 
 The development of the world wide web has provided HTML, CSS, and JavaScript.
 
-\subsubsection{HTML}
-
-?
-
-\subsubsection{CSS}
-
-?
-
 \subsection{JavaScript}
 
 JavaScript was introduced 1995 with the intention to solve small tasks, e.g. validation of input data and small animations \parencite{Moller2018}. The last few years the web has evolved from simply being a platform for websites to also be a platform for (webb-)applications/apps.
@@ -20,36 +12,9 @@ JavaScript was a major addition to the set of web technologies. It is estimated 
 
 [...]
 
-\lstset{
-    aboveskip=0cm,
-    stringstyle=\ttfamily,
-    showstringspaces = false,
-    basicstyle=\scriptsize\ttfamily,
-    commentstyle=\color{gray!45},
-    keywordstyle=\bfseries,
-    ndkeywordstyle=\bfseries,
-    identifierstyle=\ttfamily,
-    numbers=left,
-    numbersep=15pt,
-    numberstyle=\tiny,
-    numberfirstline = false,
-    breaklines=true
-}
-
-\lstdefinelanguage{JavaScript2}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, const, let, async, await, if, in, while, do, else, case, break, from},
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  captionpos=b
-}
-
 \clearpage
 
-\begin{lstlisting}[label=lst1,language=JavaScript2,numbers=none,caption=Listing 1,frame=shadowbox]
+\begin{lstlisting}[label=lst1,language=JavaScript,numbers=none,caption=prototype.js,frame=shadowbox]
 Name.prototype = {
     methodName: function(params){
         var doubleQuoteString = "some text";
@@ -69,7 +34,7 @@ Name.prototype = {
 \blindtext\\
 Listing \ref{lst1}
 
-\begin{lstlisting}[language=JavaScript2,numbers=none,caption=Listing 2,frame=shadowbox]
+\begin{lstlisting}[language=JavaScript,numbers=none,caption=Listing 2,frame=shadowbox]
 function isPrime(value) {
     for(var i = 2; i < value; i++) {k
         if(value % i === 0) {
