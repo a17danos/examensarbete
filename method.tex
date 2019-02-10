@@ -1,20 +1,43 @@
 \section{Method}
 
-För att besvara frågeställningen kommer ett experiment i form av ett prestandajämförelse ''benchmarking'' genomföras på liknande sätt som tidigare gjorts av \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} och \textcite{Zakai2018}. Enligt \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} är ett experiment lämpligt för att precist och systematiskt mäta något i en kontrollerad miljö.
+To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
 
-A new test suite XXX will be developed and executed in the latest versions of the ...
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{}llll@{}} 
+\hline
+ Algorithm & JavaScript & WebAssembly \\ [0.5ex] 
+ \hline
+ One & 123 & 123 \\ 
+ Two & 456 & 456 \\
+ ... & ... & ... \\
+ Many & N & N \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Test suite logical layout using mock data}
+\label{table:suite}
+\end{table}
 
-Testsviten JetStream kommer att köras på de senaste versionerna av webbläsarna Chrome, Edge, Firefox och Safari. Resultaten kommer användas som en baslinje. JetStream är i grunden en pletora av tester. Flera av dem är ursprungligen skrivna i C/C++ och kompilerade till JavaScript med Emscripten för att kunna inkluderas i JetStream och köras i webbläsare. Varje test i JetStream kommer kompileras till WebAssembly med Emscripten. De kompilerade testerna kommer publiceras på Github\footnote{http://github.com/danieloskarsson/webassembly/jetstream}. Dessa tester kommer sedan köras på samma webbläsare som motsvarande JavaScript-tester. Resultaten kommer att utvärderas statistiskt med ANOVA för att besvara frågeställningen.
+The suite of compiled tests will be published as open source on Github\footnote{http://github.com/a17danos}. The test suite will be executed on the latest versions of the web browsers Chrome, Edge, Firefox and Safari. The result will be statistically evaluated using ANOVA in order to answer the research question.
 
-Testerna kommer att köras två gånger, en gång på den senaste versionen av Windows och en gång på den senaste versionen av macOS. Eftersom Safari endast finns för macOS och Edge endast finns för Windows kommer testerna endast att köras en gång i dessa båda webbläsare.
+To answer the research question an experiment will be executed by running the benchmarking suite, similar to what has been done before by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} and \textcite{Zakai2018}. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment.
 
-Operativsystemen kommer att köras på samma dator där Windows kommer installeras med hjälp av BootCamp\footnote{https://support.apple.com/boot-camp}. De båda operativsystemen kommer att vara helt nyinstallerade och fått stå oanvända i 24 timmar för att testerna inte skall påverkas av indexering av filer som uppstår i samband med en nyinstallation. Samtliga tester kommer att köras med strömsladden inkopplad och datorn kommer inte vara uppkopplad till internet. 
+%The results will be used as a baseline.
 
-Metoden avses vara utformad för hög intern validitet med så få bakomliggande variabler som möjligt, samt för hög extern validitet. JetStream är en samling av tester som plockats från andra testsviter. Testerna körs $1 000$ gånger (i rad) i syfte att ge en hög reliabilitet.
+The benchmarking suite will be executed twice, once on the latest version of Windows, and once on the latest version of macOS. Given that Safari is only available on macOS and Edge is only available on Windows the test suite will only be executed one on those web browsers.
 
-För att besvara problemformuleringen används en \emph{kvantiativ} metod som går ut på att genomföra en syntetisk prestandajämförelse. Som ett komplementt eller som ersättning till en \emph{syntetiska} prestandajämförelse skulle ett riktigt JavaScript-projekt kunna konverteras till WebAssembly och studeras. Prestandajämförelser räcker för att besvara den valda frågeställningen och dess hypotes, men är inte tillräckligt för att holistiskt beskriva skillnader mellan JavaScript och WebAssembly.  
+\hl{Should I (also) execute these tests on mobile phones? Running the tests is not really a challenge or particullary time consuming.}
 
-För att beskriva fler skillnader behövs fler frågeställningar och för att få ett svar på frågeställningar som huruvida en given teknik är användbar eller på vilket sätt sätt en given teknik kan nyttjas bör \emph{kvalitatitva} metoder användas. Kvalitatitva metoder skulle kunna ge ett större perspektiv på WebAssembly och föreslås som framtida arbete.
+The two operating systems will run on the same computer, a Macbook Pro. Windows will be installed using BootCamp\footnote{https://support.apple.com/boot-camp}. The two operating systems will be freshly installed (non-OEM) and cooled off in 24 hours so that all indexing has been done executing. The benchmarking will be performed with the power cord connected and the computer will \emph{not} be connected to the internet (during the benchmarking).
 
+This method is designed for high validity with as few hidden variables as possible. The test suite will be executed $1 000$ times (in a row) to provide high reliability.
+
+\subsection*{Other methods}
+
+The answer the research question a \emph{quantitative} method is used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
+
+To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
 
 \subsection{Ethics}
+
+This experiment does not include any other humans than the author pressing the button to start the experiment. WebAssembly och asm.js are both open specifications. Emscripten is open source, available on Github. The forthcoming benchmarking test suite will be open source and available on Github. The results along with this thesis is available on Github. WebAssembly and JavaScript is executed in sandboxed environment which means that even if there would be nefarious code in the test suite running the test suite would not be able to spread a computer virus or spy on the computer on which it was executed.

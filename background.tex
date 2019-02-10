@@ -23,48 +23,9 @@ JavaScript was a major addition to the set of web technologies. It is estimated 
 \label{toy}
 \end{figure}
 
-
-\begin{table*}\centering
-\ra{1.3}
-\begin{tabular}{@{}rrrrcrrrcrrr@{}}\toprule
-& \multicolumn{3}{c}{$w = 8$} & \phantom{abc}& \multicolumn{3}{c}{$w = 16$} &
-\phantom{abc} & \multicolumn{3}{c}{$w = 32$}\\
-\cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-12}
-& $t=0$ & $t=1$ & $t=2$ && $t=0$ & $t=1$ & $t=2$ && $t=0$ & $t=1$ & $t=2$\\ \midrule
-$dir=1$\\
-$c$ & 0.0790 & 0.1692 & 0.2945 && 0.3670 & 0.7187 & 3.1815 && -1.0032 & -1.7104 & -21.7969\\
-$c$ & -0.8651& 50.0476& 5.9384&& -9.0714& 297.0923& 46.2143&& 4.3590& 34.5809& 76.9167\\
-$c$ & 124.2756& -50.9612& -14.2721&& 128.2265& -630.5455& -381.0930&& -121.0518& -137.1210& -220.2500\\
-$dir=0$\\
-$c$ & 0.0357& 1.2473& 0.2119&& 0.3593& -0.2755& 2.1764&& -1.2998& -3.8202& -1.2784\\
-$c$ & -17.9048& -37.1111& 8.8591&& -30.7381& -9.5952& -3.0000&& -11.1631& -5.7108& -15.6728\\
-$c$ & 105.5518& 232.1160& -94.7351&& 100.2497& 141.2778& -259.7326&& 52.5745& 10.1098& -140.2130\\
-\bottomrule
-\end{tabular}
-\caption{Caption}
-\end{table*}
-
-The table \ref{table:one} is an example of referenced \LaTeX elements.
-\begin{table}[h!]
-\centering
-\begin{tabular}{@{}llll@{}} 
-\hline
- Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
- \hline
- 1 & 6 & 87837 & 787 \\ 
- 2 & 7 & 78 & 5415 \\
- 3 & 545 & 778 & 7507 \\
- 4 & 545 & 18744 & 7560 \\
- 5 & 88 & 788 & 6344 \\ [1ex] 
- \hline
-\end{tabular}
-\caption{Table to test captions and labels}
-\label{table:one}
-\end{table}
-
 \clearpage
 
-\begin{lstlisting}[label=lst1,language=JavaScript,numbers=none,caption=prototype.js,frame=shadowbox]
+\begin{lstlisting}[label=lst1,language=JavaScript,numbers=none,caption=prototype.js,frame=none]
 Name.prototype = {
     methodName: function(params){
         var doubleQuoteString = "some text";
@@ -81,42 +42,27 @@ Name.prototype = {
 }
 \end{lstlisting}
 
-\blindtext\\
-Listing \ref{lst1}
+\blindtext Listing \ref{lst1}
 
-\begin{lstlisting}[language=JavaScript,numbers=none,caption=Listing 2,frame=shadowbox]
-function isPrime(value) {
-    for(var i = 2; i < value; i++) {k
-        if(value % i === 0) {
-            return false;
-        }
-    }
-    return value > 1;
-}
-\end{lstlisting}
-
-\blindtext
-
-\subsubsection{Optimizing/ations}
+\subsubsection*{Optimizing/ations}
 
 [...]
 
 A major problem with optimizing is that fact that JavaScript is a loosely typed language, which means that the interpreter needs to be able to store any type of data in any variable. If the interpreter instead would be able to distinguish between which type of data each variable can store, it would be much easier to optimize.
 
-\subsubsection{JIT}
+\subsubsection*{JIT}
 
 The manufacturers of web browsers has in the last few years focused on optimizing JavaScript performance in different ways, such as introducing ''Just-In-Time'' (JIT) compilers \parencite{HerreraChenLavoieHendren2018}.
 
-\subsubsection{AOT}
+\subsubsection*{AOT}
 
 
 
-\subsubsection{TypeScript}
+\subsubsection*{TypeScript}
 
 TypeScript \hl{REF} is a superset of JavaScript that adds type information. Type information allows the programmer to see mistakes sooner during the development phase rather than later in runtime.
 
-\begin{verbatim}
-$ cat > prime.ts
+\begin{lstlisting}[language=JavaScript,numbers=none,caption=prime.ts,frame=none]
 function isPrime(value: number) {
     for(var i = 2; i < value; i++) {
         if(value % i === 0) {
@@ -125,17 +71,18 @@ function isPrime(value: number) {
     }
     return value > 1;
 }
-\end{verbatim}
+\end{lstlisting}
 
 This does not directly solve the problem, but decreases the number of runtime errors, and enables future backend optimizations such as improved guesses by the JIT-compiler.
 
-\subsubsection{ASM.js}
+% if there should be any subsubsection section shown in the table of contents it should be asm.js
+\subsubsection{asm.js}
 
-ASM.js is a subset of JavaScript that is known to be heavily optimized.
+asm.js is a subset of JavaScript that is known to be heavily optimized.
 
-There are transpilers between JavaScript and ASM.js such as EmScripten.
+There are transpilers between JavaScript and asm.js such as EmScripten.
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript,numbers=none,caption=asm.js,frame=none]
 function strlen(ptr) { // calculate length of C string
     ptr = ptr|0;
     var curr = 0;
@@ -145,8 +92,9 @@ function strlen(ptr) { // calculate length of C string
     }
     return (curr - ptr)|0;
 }
-    
-\end{verbatim}
+\end{lstlisting}
+
+\blindtext
 
 \paragraph{x}
 
@@ -164,11 +112,11 @@ However according to \textcite{ReiserBlaser2017} there is always a desire for hi
 
 Web applications can be executed on the server with a thin wrapper in the client, in the client with our without a server counterpart. Or, as a combination of both client and server computation.
 
-\subsubsection{Server}
+\subsubsection*{Server}
 
 [...]
 
-\subsubsection{Client}
+\subsubsection*{Client}
 
 [...]
 
