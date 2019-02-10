@@ -1,6 +1,10 @@
 \section{Background}
 
-\subsection{Web technologies}
+--- The maturation of the Web platform has given rise to sophis- ticated and demanding Web applications such as interactive 3D visualization, audio and video software, and games. With that, efficiency and security of code on the Web has become more important than ever. Yet JavaScript as the only built- in language of the Web is not well-equipped to meet these requirements, especially as a compilation target.
+
+
+
+\subsection*{Web technologies}
 
 The development of the world wide web has provided HTML, CSS, and JavaScript.
 
@@ -11,6 +15,52 @@ JavaScript was introduced 1995 with the intention to solve small tasks, e.g. val
 JavaScript was a major addition to the set of web technologies. It is estimated that X \hl{add numbers with references here} use JavaScript.
 
 [...]
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6.5cm,height=6.5cm,keepaspectratio]{toy}
+\caption{My personal plastic sphere of differently shaped holes.}
+\label{toy}
+\end{figure}
+
+
+\begin{table*}\centering
+\ra{1.3}
+\begin{tabular}{@{}rrrrcrrrcrrr@{}}\toprule
+& \multicolumn{3}{c}{$w = 8$} & \phantom{abc}& \multicolumn{3}{c}{$w = 16$} &
+\phantom{abc} & \multicolumn{3}{c}{$w = 32$}\\
+\cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-12}
+& $t=0$ & $t=1$ & $t=2$ && $t=0$ & $t=1$ & $t=2$ && $t=0$ & $t=1$ & $t=2$\\ \midrule
+$dir=1$\\
+$c$ & 0.0790 & 0.1692 & 0.2945 && 0.3670 & 0.7187 & 3.1815 && -1.0032 & -1.7104 & -21.7969\\
+$c$ & -0.8651& 50.0476& 5.9384&& -9.0714& 297.0923& 46.2143&& 4.3590& 34.5809& 76.9167\\
+$c$ & 124.2756& -50.9612& -14.2721&& 128.2265& -630.5455& -381.0930&& -121.0518& -137.1210& -220.2500\\
+$dir=0$\\
+$c$ & 0.0357& 1.2473& 0.2119&& 0.3593& -0.2755& 2.1764&& -1.2998& -3.8202& -1.2784\\
+$c$ & -17.9048& -37.1111& 8.8591&& -30.7381& -9.5952& -3.0000&& -11.1631& -5.7108& -15.6728\\
+$c$ & 105.5518& 232.1160& -94.7351&& 100.2497& 141.2778& -259.7326&& 52.5745& 10.1098& -140.2130\\
+\bottomrule
+\end{tabular}
+\caption{Caption}
+\end{table*}
+
+The table \ref{table:one} is an example of referenced \LaTeX elements.
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{}llll@{}} 
+\hline
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ \hline
+ 1 & 6 & 87837 & 787 \\ 
+ 2 & 7 & 78 & 5415 \\
+ 3 & 545 & 778 & 7507 \\
+ 4 & 545 & 18744 & 7560 \\
+ 5 & 88 & 788 & 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels}
+\label{table:one}
+\end{table}
 
 \clearpage
 
@@ -106,7 +156,7 @@ x
 
 y
 
-\subsection{Web applications}
+\subsection*{Web applications}
 
 Web applications are made possible through use of JavaScript.
 
@@ -121,14 +171,6 @@ Web applications can be executed on the server with a thin wrapper in the client
 \subsubsection{Client}
 
 [...]
-
-\subsection{Benchmarking}
-
-\parencite{LehmannPradel2018,MalleGiulianiKiesebergHolzinger2018}
-
-[...]
-
-WebAssembly is according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} an option to JavaScript with higher performance. Higher performance makes way for demanding/truly high-performing applications/apps.
 
 \subsection{WebAssembly}
 
@@ -146,3 +188,11 @@ The focus on C/C++ is largely based on WebAssembly implementation limitations su
 WebAssembly is loaded as a module via a JavaScript API or another WebAssembly module \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. According to \textcite{Moller2018} it's \emph{not} a goal to have WebAssembly replace JavaScript, the idea is that they \emph{complement} each other. One example of how JavaScript and WebAssembly could complement each other is to replace large portions of JavaScript within popular JavaScript-frameworks with WebAssembly, but keep the JavaScript API towards the developer and thus only provide the benefit of performance.
 
 WebAssembly is new technology. The first articles about WebAssembly was published in 2017 \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017,ReiserBlaser2017}.
+
+\subsection{Benchmarking}
+
+\parencite{LehmannPradel2018,MalleGiulianiKiesebergHolzinger2018}
+
+[...]
+
+WebAssembly is according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} an option to JavaScript with higher performance. Higher performance makes way for demanding/truly high-performing applications/apps.

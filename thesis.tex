@@ -2,10 +2,16 @@
 \usepackage[english]{babel}
 \usepackage[parfill]{parskip}
 \usepackage{subfiles}
-%\usepackage[tableposition=top]{caption}
-%\usepackage{booktabs} % for nice tables
 \usepackage{soulutf8}
 \usepackage{blindtext}
+
+\usepackage{booktabs} % for nice tables
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+\setcounter{tocdepth}{2}
 
 \title{Benchmarking WebAssembly}
 \subtitle{}
@@ -42,8 +48,26 @@
 \clearpage
 \subfile{problem}
 
+\subsection{Hypothesis}
+
 \clearpage
 \subfile{method}
+
+\subsection{Ethics}
+
+\section{Implementation}
+
+\section{Evaluation}
+
+\subsection{Results}
+
+\subsection{Analysis}
+
+\section{Conclusions}
+
+\subsection{Discussion}
+
+\subsection{Future work}
 
 \clearpage
 \printbibliography[heading=bibintoc]
