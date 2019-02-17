@@ -1,156 +1,92 @@
 \section{Background}
+\label{background}
 
-The original intent behind the web was to share documents written in HTML, CSS that used JavaScript for simple tasks such as client-side form validation \parencite{Moller2018,Zakai2018}.
-
-% JavaScript is today well supported in virtually all web browsers on both desktop and mobile \parencite{Zakai2011}.
+The original intent behind the web was to share documents written in HTML, CSS that used JavaScript for simple tasks such as client-side form validation \parencite{Zakai2018,Moller2018}. The set of original web technologies was all introduced in just a few years in 1993 to 1996 as illustrated in Figure \ref{figure:webtechnologies-timeline}.
 
 % The last few years more advanced applications has moved to the web, mandating higher performance (REF).
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=16cm,keepaspectratio]{../Figures/webtechnologies-timeline}
+\caption{Timeline of major web technologies: HTML, CSS, JavaScript and it's newest member WebAssembly.}
+\label{figure:webtechnologies-timeline}
+\end{figure}
 
 \subsection{Web apps}
 
 Historically programs or applications run locally on a client device such as a personal computer. Since the introduction of the iPhone in 2007 and the release of the iOS app store in 2008 followed by the introduction of Google Play later the same year many %use numbers here?
 has gotten acquainted with mobile apps, applications that run locally on a mobile device.
 
-Wep applications, or web apps for short, is a type of application that run inside a web browser. Traditionally web applications a built with a thin user interface layer through which the user interacted with the application, while the actual computation was executed on one or more servers, % in the cloud
+The last few years the web has evolved from simply being a platform for websites to also be a platform for web apps. Web applications, or web apps for short, is a type of application that run inside a web browser. Traditionally web applications a built with a thin user interface layer through which the user interacted with the application, while the actual computation was executed on one or more servers, % in the cloud
 passing data back and forth between the client and the server.
 
-Web apps are based on HTML, CSS, and JavaScript \parencite{ParkJungMoon2015}, the same web technologies originally conceived to share documents. JavaScript is increasingly popular for building high performance web apps \parencite{SandhuHerreraHendren2018}
-
-web apps have an advantage of portability compared to mobile apps, but given the foundation of JavaScript is lacking in performance.
-
-. Web applications are made possible through use of JavaScript, but according to \textcite{ParkJungMoon2015} the dynamic typing and prototypes features of JavaScript makes it execution inefficient. 
-
-''JavaScript is the most widely used language for web programming, and now increasingly becoming popular for high performance computing, data-intensive applications, and deep learning. More recently, WebAssembly has been introduced as a typed low-level by'' \parencite{SandhuHerreraHendren2018}
-
-
-According to \textcite{ParkJungMoon2015} 
-
-
-
-\textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} notes that while the web has given rise to demanding web apps JavaScript as a language, being the only programming language available in web browsers, is not very well equipped to support such applications.
-
-However according to \textcite{ReiserBlaser2017} there is always a desire for higher performance. \textcite{Zakai2018} describes JavaScript as an obstacle for demanding/truly high-performing applications/apps.
+Web apps are based on HTML, CSS, and JavaScript \parencite{ParkJungMoon2015}, the same web technologies originally conceived to share documents. JavaScript was a major addition to the set of web technologies as web apps are made possible through use of JavaScript \parencite{ParkJungMoon2015}. JavaScript is increasingly popular for building high performance apps \parencite{SandhuHerreraHendren2018}. As modern devices becomes increasingly more powerful, more and more web apps are built to do computing client side.
 
 \subsection{JavaScript}
 
-JavaScript was introduced 1995 with the intention to solve small tasks, e.g. validation of input data and small animations. The last few years the web has evolved from simply being a platform for websites to also be a platform for (webb-)applications/apps.
+JavaScript was introduced 1995 with the intention to solve small tasks such as validation of input data and small animations \parencite{Moller2018} and is today well supported in virtually all web browsers on both desktop and mobile \parencite{Zakai2011}. According to \textcite{TiwariSolihin2012} more than 95\% of all web pages are viewed with JavaScript enabled web browsers and more than 99\% of all web sites use JavaScript. While web apps have an advantage of portability compared to native mobile apps, the dynamic typing and prototypes features of JavaScript makes it execution inefficient \parencite{ParkJungMoon2015}.
 
-JavaScript was a major addition to the set of web technologies. It is estimated that X \hl{add numbers with references here} use JavaScript.
-
-[...]
-
-
-
-''One popular way of accelerating JavaScript is using the just-in-time compilation (JITC), which translates the JavaScript source code to the machine code at runtime. Unfortunately, JavaScript JITC for web apps suffers from the parsing and compilation overhead seriously, which offsets the performance gain of executing the compiled code.'' \parencite{ParkJungMoon2015}
-
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=16cm,keepaspectratio]{jit-compiling-ParkJungMoon2015}
-\caption{JavaScript interpretation. (to be) Adapted from \textcite{ParkJungMoon2015}}
-\label{figure:label}
-\end{figure}    
-
-\begin{lstlisting}[label=lst1,language=JavaScript,numbers=none,caption=prototype.js,frame=none]
-Name.prototype = {
-    methodName: function(params){
-        var doubleQuoteString = "some text";
-        var singleQuoteString = 'some more text';
-        // this is a comment
-        if(this.confirmed != null && typeof(this.confirmed) == Boolean && this.confirmed == true){
-        document.createElement('h3');
-        $('#system').append("This looks great");
-        return false;
-        } else {
-        throw new Error;
-        }
-    }
-}
-\end{lstlisting}
-
-Listing \ref{lst1}
-
-\subsubsection*{Optimizing/ations}
-
-[...]
-
-A major problem with optimizing is that fact that JavaScript is a loosely typed language, which means that the interpreter needs to be able to store any type of data in any variable. If the interpreter instead would be able to distinguish between which type of data each variable can store, it would be much easier to optimize.
-
-\subsubsection*{JIT}
-
-''One popular way of accelerating JavaScript is using the just-in-time compilation (JITC), which translates the JavaScript source code to the machine code at runtime. Unfortunately, JavaScript JITC for web apps suffers from the parsing and compilation overhead seriously, which offsets the performance gain of executing the compiled code.'' \parencite{ParkJungMoon2015}
+\subsubsection*{Optimizing/ations/JIT}
 
 The manufacturers of web browsers has in the last few years focused on optimizing JavaScript performance in different ways, such as introducing ''Just-In-Time'' (JIT) compilers \parencite{HerreraChenLavoieHendren2018}.
 
+
+
+''One popular way of accelerating JavaScript is using the just-in-time compilation (JITC), which translates the JavaScript source code to the machine code at runtime. Unfortunately, JavaScript JITC for web apps suffers from the parsing and compilation overhead seriously, which offsets the performance gain of executing the compiled code.'' \parencite{ParkJungMoon2015}
+
+
+A major problem with optimizing is that fact that JavaScript is a loosely typed language, which means that the interpreter needs to be able to store any type of data in any variable. If the interpreter instead would be able to distinguish between which type of data each variable can store, it would be much easier to optimize. This is asm.js.
+
+\clearpage
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=16cm,keepaspectratio]{../Figures/reference-architecture}
+\caption{Web browser reference architecture. Adapted from \textcite{GrosskurthGodfrey2005}.}
+\label{reference-architecture}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=16cm,keepaspectratio]{../Figures/javascript-optimization}
+\caption{JavaScript execution tiers. Adapted from \textcite{ParkKimMoon2017}.}
+\label{javascript-optimization}
+\end{figure}
+
 \subsubsection*{AOT}
-
-
 
 \subsubsection*{TypeScript}
 
 TypeScript \hl{REF} is a superset of JavaScript that adds type information. Type information allows the programmer to see mistakes sooner during the development phase rather than later in runtime.
 
-\begin{lstlisting}[label=listing:typescript,language=JavaScript,numbers=none,caption=prime.ts,frame=none]
-function isPrime(value: number) {
-    for(var i = 2; i < value; i++) {
-        if(value % i === 0) {
-            return false;
-        }
-    }
-    return value > 1;
-}
-\end{lstlisting}
+\lstinputlisting[label=listing:typescript,language=JavaScript,caption=prime.ts]{../Listings/isprime.ts}
 
 This does not directly solve the problem, but decreases the number of runtime errors, and enables future backend optimizations such as improved guesses by the JIT-compiler.
 
 % if there should be any subsubsection section shown in the table of contents it should be asm.js
 \subsubsection{asm.js}
 
+Asm.js is a subset of JavaScript that is focused on performance. It's works 
+
 asm.js is a subset of JavaScript that is known to be heavily optimized. The main part of the optimization is ...
+
+https://en.wikipedia.org/wiki/Asm.js
 
 ''A key development here is asm.js,1 which in 2013 was introduced in the Firefox browser. The idea behind asm.js is that JavaScript is slow because it is very dynamic and com- plex, so if we define a subset of JavaScript that is simple, it could be far more easily optimized,'' \parencite{Zakai2018}
 
-\begin{lstlisting}[label=listing:asmjs,language=JavaScript,caption=asm.js]
-function strlen(ptr) { // calculate length of C string
-    ptr = ptr|0;
-    var curr = 0;
-    curr = ptr;
-    while (MEM8[curr]|0 != 0) {
-        curr = (curr + 1)|0;
-    }
-    return (curr - ptr)|0;
-}
-\end{lstlisting}
-
-\begin{figure}
-    \begin{small}
-    \begin{verbatim}
-function strlen(ptr) {
-    ptr = ptr|0;
-    var curr = 0;
-    curr = ptr;
-    while (MEM8[curr]|0 != 0) {
-        curr = (curr + 1)|0;
-    }
-    return (curr - ptr)|0;
-}
-    \end{verbatim}
-    \end{small}
-    \caption{My Caption}
-    \label{my-label}
-\end{figure}
+\lstinputlisting[label=listing:asmjs,language=JavaScript,caption=asm.js]{../Listings/asm.js}
 
 Listing \ref{listing:asmjs} shows an implementation of a C string calculation length function written in asm.js.
 
 There are transpilers between JavaScript and asm.js such as EmScripten.
 
-\paragraph{x}
 
-x
 
-\subparagraph{y}
+\textcite{ReiserBlaser2017} describes that there is always a desire for higher performance in web applications.
+\textcite{Zakai2018} describes JavaScript as an obstacle for demanding high-performing apps. 
+\textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} notes that while the web has given rise to demanding web apps JavaScript as a language, being the only programming language available in web browsers, is not very well equipped to support such applications.
 
-y
+%\lstinputlisting[label=prototype,language=JavaScript,caption=prototype.js]{../Listings/prototype.js}
 
 \subsection{WebAssembly}
 

@@ -1,4 +1,5 @@
 \section{Method}
+\label{method}
 
 To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
 
