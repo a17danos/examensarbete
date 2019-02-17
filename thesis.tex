@@ -11,13 +11,23 @@
 \usepackage{floatrow}
 \floatsetup[table]{capposition=top}
 
+\lstdefinestyle{customabc}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+\newcommand{\listing}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
+
 %\setcounter{tocdepth}{2}
 
 \title{Benchmarking WebAssembly}
 \subtitle{}
 \course{Bachelor Degree Project in Informatics\\30 ECTS}
 \author{Daniel Oskarsson}
-\timeframe{Spring term 2019}
+\timeframe{Spring 2019}
 \supervisor{Henrik Gustavsson}
 \examiner{Mikael Berndtsson}
 
