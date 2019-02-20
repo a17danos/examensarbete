@@ -4,7 +4,6 @@
 \usepackage{subfiles}
 \usepackage{soulutf8}
 \usepackage{blindtext}
-\usepackage{comment}
 
 \usepackage{booktabs} % for nice tables
 \renewcommand{\arraystretch}{1.2}
@@ -36,6 +35,7 @@
 
 \maketitle
 
+\begin{comment}
 \begin{abstract}
     \bigskip
     \normalsize
@@ -43,6 +43,7 @@
     \\
     \textbf{\labelKeywords:} \subfile{keywords}
 \end{abstract}
+\end{comment}
 
 \clearpage
 \tableofcontents
@@ -62,21 +63,23 @@
 \clearpage
 \subfile{method}
 
-\clearpage
-\subfile{implementation}
+%\clearpage
+%\subfile{implementation}
 
-\clearpage
-\subfile{evaluation}
+%\clearpage
+%\subfile{evaluation}
 
-\clearpage
-\subfile{conclusion}
+%\clearpage
+%\subfile{conclusion}
 
 \clearpage
 \printbibliography[heading=bibintoc]
 
+\begin{comment}
 \clearpage
 \pagestyle{empty}
 \centering
 \includegraphics[width=12.3cm,keepaspectratio]{../Figures/javascript+webassembly}
+\end{comment}
 
 \end{document}
