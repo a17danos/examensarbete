@@ -1,7 +1,19 @@
 \section{Method}
 \label{method}
 
-To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
+To answer the research question a \emph{quantitative} method can be used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
+
+To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
+
+\hl{glom ej nackdelar med experiment!!!}
+
+To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. 
+
+According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment.
+
+Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
+
+\hl{variabler och faktorer samt for och nackdelar med respektive metod, anvand wohlin som referens}
 
 \begin{table}[h!]
 \centering
@@ -21,7 +33,7 @@ To evaluate performance a benchmarking test suite this thesis will take the appr
 
 The suite of compiled tests will be published as open source on Github\footnote{http://github.com/a17danos}. The test suite will be executed on the latest versions of the web browsers Chrome, Edge, Firefox and Safari. The result will be statistically evaluated using ANOVA in order to answer the research question.
 
-To answer the research question an experiment will be executed by running the benchmarking suite, similar to what has been done before by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} and \textcite{Zakai2018}. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment.
+To answer the research question an experiment will be executed by running the benchmarking suite, similar to what has been done before by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} and \textcite{Zakai2018}.
 
 %The results will be used as a baseline.
 
@@ -33,15 +45,11 @@ The two operating systems will run on the same computer, a Macbook Pro. Windows 
 
 This method is designed for high validity with as few hidden variables as possible. The test suite will be executed $1 000$ times (in a row) to provide high reliability.
 
-\subsection*{Other methods}
-
-The answer the research question a \emph{quantitative} method is used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
-
-To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
-
 \subsection{Ethics}
 
 This experiment does not include any other humans than the author pressing the button to start the experiment. WebAssembly och asm.js are both open specifications. Emscripten is open source, available on Github. The forthcoming benchmarking test suite will be open source and available on Github. The results along with this thesis is available on Github. WebAssembly and JavaScript is executed in sandboxed environment which means that even if there would be nefarious code in the test suite running the test suite would not be able to spread a computer virus or spy on the computer on which it was executed.
+
+\hl{problemen med bechmark och oschtrictet med referens}
 
 \begin{comment}
 “Any empirical research activity involving human subjects must take ethical aspects into consideration. Some aspects are regulated by national laws, others are not regulated at all. Andrews and Pradhan identified ethical issues in software engineering, and found existing policies to be insufficient [3]. Hall and Flynn surveyed ethical practice and awareness in the UK, and found alarming unawareness [71], and nothing indicates this country being an exception.

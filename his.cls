@@ -28,20 +28,20 @@
 \captionsetup{font=footnotesize,labelfont=bf}
 \lstset{
     aboveskip=0cm,
-    stringstyle=\ttfamily,
+    stringstyle=\footnotesize\ttfamily,
     showstringspaces = false,
-    basicstyle=\scriptsize\ttfamily,
+    basicstyle=\footnotesize\ttfamily,
     commentstyle=\color{gray!80},
     keywordstyle=\bfseries,
     ndkeywordstyle=\bfseries,
-    identifierstyle=\ttfamily,
+    identifierstyle=\footnotesize\ttfamily,
     tabsize=4,
     xleftmargin=3em,
     framexleftmargin=1em,
     frame=leftline,
     numbers=left,
     numbersep=15pt,
-    numberstyle=\tiny,
+    numberstyle=\scriptsize,
     numberfirstline = false,
     breaklines=true
 }

@@ -1,6 +1,6 @@
 JavaScript was introduced 1995 with the intention to solve small tasks such as validation of input data and small animations \parencite{Moller2018} and is today well supported in virtually all web browsers on both desktop and mobile \parencite{Zakai2011}. According to \textcite{TiwariSolihin2012} more than 95\% of all web pages are viewed with JavaScript enabled web browsers and more than 99\% of all web sites use JavaScript. While web apps have an advantage of portability compared to native mobile apps, the dynamic typing and prototypes features of JavaScript makes it execution inefficient \parencite{ParkJungMoon2015}.
 
-\subsubsection{Optimizations}
+\subsubsection*{Optimizations}
 
 The component in a web browser that is focused on JavaScript interpretation and execution is called a JavaScript engine (Figure \ref{reference-architecture}). The last few years manufacturers of web browsers has been focused on optimizing JavaScript performance through just-in-time (JIT) and recently ahead-of-time (AOT) compilation \parencite{HerreraChenLavoieHendren2018}.
 
@@ -59,7 +59,11 @@ Another approach to optimize JavaScript is asm.js. Asm.js i subset of JavaScript
 %\figure[Some figure caption]{javascript-optimization}
 %\lstinputlisting[label=prototype,language=JavaScript,caption=prototype.js]{../Listings/prototype.js}
 
-Listing \ref{listing:asmjs} shows an implementation of a C string calculation length function written in asm.js. The two most prominent differences between asm.js and regular JavaScript is \texttt{|0} and the use of \texttt{MEM8[]}. The former is a bitwise or operator that does not have an effect on the value that is return other than specifying it as a signed integer, thus providing the JavaScript engine with type information. The latter is actually asm.js handling its own memory using a type buffer instead of relying on the slower garbage collector provided by the JavaScript engine.
+Listing \ref{listing:asmjs} shows an implementation of a C string calculation length function written in asm.js containing two prominent differences between asm.js and regular JavaScript. 
+
+On line 2, 6, and 8 a bitwise operator \texttt{|0} is used. The operator has no effect on the value of the result but provides a hint to the JavaScript engine that the result is of the type signed integer which can be used by the JavaScript engine to optimize the performance. 
+
+The use of \texttt{MEM8[]} on line 5 is another way to increase the performance in asm.js. In asm.js much of the memory is written to and read from a type buffer instead of relying on the slower garbage collector provided by the JavaScript engine.
 
 Asm.js is not meant to be written by hand but rather serve as compilation target. The tool EmScripten \parencite{Zakai2011} was created as a source-to-source compiler between other languages such as C/C++ and asm.js. As asm.js is a subset of JavaScript all browsers that can run JavaScript can run asm.js code that has been created by the EmScripten tool.
 

@@ -1,7 +1,13 @@
 \section{Problem}
 \label{problem}
 
-The problem is Benchmarking WebAssembly. The research question is to determine if there is a significant performance difference between WebAssembly and JavaScript in the web browsers Chrome, Edge, Firefox and Safari on Windows and macOS.
+The problem is to benchmark and evaluate any significant performance improvements \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017,ReiserBlaser2017,Zakai2018} when using WebAssembly instead of JavaScript to implement algorithms commonly executed in modern web applications such as compression, encryption, sorting, floating point calculations, regular expressions, 2D and 3D rendering.
+
+There are different ways to do this as described by \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012}. One way would be to take an existing application and change the internals from JavaScript to WebAssembly and compare that from a end user perspective this would have the benefit of [...], but is not possible due to [...]. Another way would be to investigate perceived performance [...]. A third option taken in this thesis is to compile a set of tests into both JavaScript/asm.js and WebAssembly. Where each test represent a specific algorithm. Then run the all tests on a multitude of different web browsers on different platforms (desktop, tablets, and mobile phones), compare the result and reason about the differences.
+
+% in modern web browsers as   leave to method
+
+%The problem is Benchmarking WebAssembly. The research question is to determine if there is a significant performance difference between WebAssembly and JavaScript in the web browsers Chrome, Edge, Firefox and Safari on Windows and macOS.
 
 %According to X WebAssembly is "faster". 
 %Are there any particular algorithms that WebAssembly is faster than?
@@ -9,7 +15,9 @@ The problem is Benchmarking WebAssembly. The research question is to determine i
 
 \subsection{Hypothesis}
 
-The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript.
+The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript in all browsers on all platforms.
+
+\hl{specific situation, e.g. less so when manipulating dom}
 
 \subsection{Previous work}
 
