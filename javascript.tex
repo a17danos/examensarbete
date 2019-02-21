@@ -22,6 +22,8 @@ Figure \ref{reference-architecture} illustrates a reference architecture of a we
     
 \end{comment}
 
+\hl{GalEichShaverAndersonMandelinHaghighatKaplanHoareZbarskyOrendorff2009}
+
 % Previously we had characters/strings being parsed into an abstract syntax tree (AST) that was then used to generate bytecode that was run with an interpreter.
 
 The way that JavaScript has been managed has changed with time. The first tier (Figure \ref{javascript-optimization}) is concerned with doing realtime interpretation and from that creating bytecode that is executed \parencite{ParkKimMoon2017}. Before browser vendors saw a competitive in having a really fast JavaScript engine the first tier was the only job of the JavaScript engine. The introduction of the second tier, the JIT compilation step gave JavaScript performance a real boost. In some browsers there are as many as four different optimization levels within the JIT compilation step based on the number of times a certain piece of code is executed. \textcite{ZhuykovVardanyanMelnikBuchatskiySharygin2015} and others are currently experimenting with AOT compilation where JavaScript is actually compiled ahead of time which exchanges faster performance for larger size.

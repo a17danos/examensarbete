@@ -1,4 +1,3 @@
-
 Considering using WebAssembly to replace certain type of JavaScript raises the question of benchmarking. 
 
 \hl{koppla mot ovanstående}
@@ -11,8 +10,408 @@ Benchmarking is hard. As noted by \textcite{CaiNerurkarWu1998} there are plenty 
 
 There are good reasons to not measure web applications performance using benchmarks \hl{ref,ref}. The purpose of this thesis is to present areas where WebAssembly specifically good to use. As with WebAssembly compared to JavaScript, the former is not meant to replace the latter, and it's not in all cases better to use WebAssembly over JavaScript. (the results show?)
 
+\begin{comment}
+CaiNerurkarWu1998
 
-%\textcite{CaiNerurkarWu1998,LeeMoon2011,MishraBaudry2016,RatanaworabhanLivshitsZorn2010,ZhuykovVardanyanMelnikBuchatskiySharygin2015}
+Page 1
+
+puter. Tobe optimal, a benchmark should be free of dead code and short cuts, and hard to be opti- mized further manually or by a compiler. Tobe re- peatable,abenchhmark should generate the same result for repeated testings.
+
+The industry is full of anecdotes of benchmark \cheating" of various degrees ranging from innocent mistakes to agrant misuse.
+
+Tobe uncheatable, a benchmark should be able to preventchheating on executing bench- mark programs, and reporting computation results and performance.
+
+Ideally, the sample programs and data sets should be randomly selected from real us- age of the computer.
+
+In the past, most researchers in the area of benchmark design have focused on \typical" programs and data sets to approximate the sample set.
+
+it is not an exaggeration to say that the \state of the art" in benchmark design has remained ad hoc,
+
+Most benchmarks are not reliable and benchmark- ing results are often misleading.
+
+A reliable benchmark must be representative, opti- mal, repeatable, and uncheatable.
+
+Tobe representa- tive, a benchmark should include a few programs that
+
+Dead code is often found in synthetic bench- marks because usually nonsense program structures
+
+represent all programs to be executed on the given com
+
+Page 2
+
+When the test data set is xed, repeatability is usually not a big problem. However, for uncheatability as stated below, test data sets are randomly generated and the bench- marking results can be quite dierent for each data set
+
+It is not a se- cret that manyveendors demonstrate performance of their computers by substituting computation kernels of a benchmark program with assembly codes. Some- times assembly-coded computation kernels are made as \library routines."
+
+Verifying performance claims is of signicant prac- tical importance. However, for many existing bench- marks, it is rather easy to \improve" on benchmark results without actually improving the product, thus to \fake" superior performance.
+
+Rather than perform the analysis so that the compiler could properly decide if the optimization could be applied, a person at one startup company used a preprocessor that scanned the text for keywords to try to identify benchmarks by looking for the name of the author and the name of akeey subroutine.
+
+The industry is full of anecdotes of benchmark \cheating" of various de- grees ranging from innocent mistakes to agrant mis- use.
+
+If the scan conrmed that this pro- gram was on a predened list, the special optimizations were performed. This machine made a sudden jump in performance { at least according to those benchmarks.
+
+The main problem for most existing benchmarks is that its data sets are usually known in advance, thus various vendors could conceivably \optimize" their product just to turn in superior test results on these benchmarks.
+
+A more dicult problem is to prevent short cut. A short cut is an easier (faster) way to compute the same results.
+
+A smart compiler could recognize that there is a closed formula for this computation, and replace the loop by the formula x = N(N 1) =2.
+
+Bail91
+
+Page 3
+
+at runtime, the vendors cannot predict and thus cannot
+
+\optimize" on specic test data.
+
+Based on the tremendous progress made in recent years in theoretical computer science [ALMSS, Fre79, GGM86], especially with regard to our understand- ing of the power of randomization and interaction, it becomes possible to make a wide variety of existing benchmarks more accurate, resistant to tampering and more trustworthy. In making benchmarks more resis- tant to tampering, we use tools from complexity the- ory including one-way functions, trapdoor functions, and randomization. These methods make benchmarks uncheatable.
+
+In our schemes, the benchmark test routines are public and data is randomized at run time. With the help of secret hidden (trapdoor) infor- mation, correctness and performance can be indepen- dently tested and veried quickly.
+
+We presenttwwo methods to gain computational ad- vantage in judging performance claims. In the rst approach, the tester gains a computational advantage via a hidden \secret," which is also randomly gener- ated. With the secret information, the tester can know, or can easily compute, the correct answer in advance. This approach is called the Secret Key (SK) method.
+
+Secondly, for many problems, verifying the result is easier than computing it [Fre79]. For example, verify- ing the result of a linear equation solver can be accom- plished faster than any known algorithm which com- putes it.
+
+We propose a Realistic Uncheatable Benchmark Suite (RUBS).
+
+The uncheatable benchmarks satisfy the following conditions:
+
+This asymmetry allows the tester a compu- tational advantage over the vendor. This approachis called the Result Verication (RV) method.
+
+Computation performed is checked for correctness and accuracy (which is mostly not the case with existing benchmarks).
+
+There are no easy short-cuts
+
+The tester of the benchmark (who acts on behalf of potential customers who may purchase or use the system) has a computational advantage in judg- ing the performance claims made bya veendor of the system, who must submit to the test of the benchmark.
+
+In order to avoid the problems with conventional benchmarks, where vendors could potentially \optimize" on specic test data, all test data in our benchmark suite are gen- erated by some randomized process at runtime.
+
+Since these test data are generated \on demand"
+
+Page 7
+
+Wehavve designed and implemented the Realis- tic Uncheatable Benchmark Suite (RUBS). It resides in \http://www-ece2.engr.ucf.edu/~wu/Rubs/"
+
+In order to makeRUUBSaweeb-based system with the user being able to point and click to run a benchmark, wehavve implemented it in Java, similar to [LINjava]. It is implemented as a client-server system for accurate realtime measurement of benchmark execution time.
+
+Page 8
+
+Experiments were conducted to test whether the ideas work in practice as well as in theory
+
+Page 10
+
+This paper presented the design and implementa- tion of uncheatable benchmarks. Tools from theoreti- cal computer science including randomization, one-way functions, and trapdoor functions are used to develop the uncheatable benchmark.
+
+\end{comment}
+
+\begin{comment}
+
+JangdaPowersGuhaBerger2019
+
+Page 1
+
+WebAssembly is specifically intended to serve as a univer- sal compilation target for web browsers
+
+Unlike past approaches to achieve native or near-native speed for code running inside the browser (e.g., ActiveX [11], Google Native Client and Portable Native Client [4, 12], and asm.js [26]), WebAssembly is intended to not only be fast but also to be safe (providing formal safety guarantees) and highly portable
+
+All major web browsers now support WebAssembly, a low- level bytecode intended to serve as a compilation target for code written in languages like C and C  .
+
+A key goal ofWeb- Assembly is performance parity with native code; previous work reports near parity, with many applications compiled to WebAssembly running on average 10% slower than na- tive code.
+
+It is now supported by all major browsers
+
+However
+
+C#, Go
+
+standard Unix APIs are not available in the web browser environment. To address this challenge, we build BROWSIX-WASM
+
+makes it possible to run unmodified WebAssembly-compiled Unix applications directly inside the browser
+
+Because WebAssembly is low level and strictly typed, it offers the promise of higher performance than JavaScript. The paper introducing WebAssembly [15] presents results show- ing that code compiled to WebAssembly executing on Google Chrome’s V8 engine runs 34% faster than code compiled to JavaScript (asm.js). It also achieves competitive perfor- mance versus native code: of the 24 benchmarks evaluated, seven run within 10% of native execution and almost all of them run less than 2× slower.
+
+We then use BROWSIX-WASM to conduct the first large-scale evaluation of the performance ofWebAssembly vs. native. Across the SPEC CPU suite of benchmarks, we find a substantial performance gap: applications compiled to WebAssembly run slower by an average of 50% (Firefox) to 89% (Chrome), with peak slowdowns of 2.6× (Firefox) and 3.14× Chrome). We identify the causes of this performance degradation, some of which are due to missing optimizations and code generation issues, while others are inherent to the WebAssembly platform.
+
+While these results are promising, the evaluation conducted in this paper is severely limited. It relies exclusively on the Poly- BenchC benchmark suite [5]. This suite, meant to measure the effect of polyhedral loop optimizations, consists of a number of small scientific computing kernels like matrix multiplica- tion. Each benchmark is roughly 100 lines of code. These workloads are not necessarily representative of applications that target the browser.
+
+Web browsers have become the most popular platform for client-side application developers. Until recently, the only programming language available to web developers was JavaScript. Beyond its various quirks and pitfalls from a programming languages perspective, JavaScript is also noto- riously difficult to compile efficiently. Applications written in or compiled to JavaScript typically run much slower than their native counterparts.
+
+Useas argument in my thesis?
+
+...
+
+Not really true.
+
+Page 2
+
+A more comprehensive evaluation would use an estab- lished, large-scale benchmark suite consisting of large pro- grams such as SPEC CPU. However, it is not generally possi- ble to run larger applications inside the browser. Compiling them to WebAssembly is not enough: browsers lack support for the kind of system services that applications expect, such as a file system, synchronous I/O, and processes.
+
+The standard approach to running these applications today is to use Emscripten, a toolchain for compiling C and C   to WebAssembly [27]. Unfortunately, Emscripten only supports the most trivial system calls and does not scale up to large- scale applications. For example, to enable applications to use synchronous I/O, the default Emscripten MEMFS filesystem loads the entire filesystem image into memory before the program begins executing. For SPEC, these files are too large to fit into memory.
+
+Root Cause Analysis and Advice for Implementers
+
+BROWSIX can run applications as complex and full- featured as LLAATEXwithout any code modifications.
+
+To enable running code compiled to WebAssembly, we build a new framework, BROWSIX-WASM
+
+Contributions: This paper makes the following contribu- tions.
+
+BROWSIX-WASM required signifi- cant modifications both to the compiler and kernel, which we outline below:
+
+Dito.
+
+Page 3
+
+PolyBenchC Benchmarks
+
+SPEC CPU Benchmarks
+
+Figure 1: The performance of the PolyBenchC and the SPEC CPU benchmarks compiled to WebAssembly (executed in Firefox and Chrome) relative to native, using BROWSIX-WASM and BROWSIX-SPEC. The SPEC CPU benchmarks exhibit higher overhead overall than the PolyBenchC suite, indicating a significant performance gap exists between WebAssembly and native.
+
+we discovered significant and pre- viously unknown performance issues in core parts of the BROWSIX kernel.
+
+This change alone decreased the time the 464.h264ref benchmark spent in BROWSIX from 25 seconds to under 1.5 seconds.
+
+To reliably execute WebAssembly benchmarks while cap- turing performance counter data, we developed a test har- ness called BROWSIX-SPEC.
+
+We use BROWSIX-SPEC to run three benchmark suites to evaluate WebAssembly’s performance: SPEC CPU2006,
+
+Do a similar comparison with previous known benchmarks in my thesis?
+
+Page 4
+
+SPEC CPU2017 and PolyBenchC. These benchmarks are compiled to native code using clang-4.0, and WebAssembly using BROWSIX-WASM.
+
+All benchmarks were executed on a system with a 6-Core Intel Xeon E5-1650 v3 CPU with hyperthreading and 64 GB of RAM running Ubuntu 16.04 with Linux kernel v4.4.0.
+
+Benchmarks were compiled to native code using clang 4.0 with flags -O2 -fno-strict-aliasing. BROWSIX-WASM (with Emscripten based on clang/llvm 4.0) was used to compile all benchmarks to WebAssembly with flags -O2 -s TOTAL_MEMORY=1073741824 -s ALLOW_MEMORY_GROWTH=1 -fno-strict-aliasing.
+
+Web- Assembly code was executed in two state-of-the-art browsers: Google Chrome 67.0 and Mozilla Firefox 64.0.
+
+PolybenchC benchmarks are small scientific kernels and are standard benchmarks for polyhedral techniques but they are not representative of larger applications.
+
+We include all benchmarks in the PolyBenchC benchmark suite and all C/C   benchmarks in SPEC CPU2006 benchmark suite except 400.perlbench and 403.gcc, which we were unable to compile with Emscripten.
+
+Dito.
+
+Page 5
+
+Table 1: Detailed breakdown of SPEC CPU Benchmarks exe- cution times (of 5 runs) for native (clang) and WebAssembly (Firefox and Chrome); all times are in seconds. Firefox is always faster than Chrome. The median slowdown of Web- Assembly is 1.43× for Firefox, and 1.92× for Chrome.
+
+Page 6
+
+Figure 4: Relative SPEC CPU Benchmarks times of asm.js to WebAssembly for Firefox and Chrome. WebAssembly is 1.68× faster than asm.js in Firefox and 1.10× faster than asm.js in Chrome.
+
+WebAssembly is 1.3× faster than asm.js.
+
+Show times in pairs like this. With one being JavaScript and the other being WebAssembly?
+
+Page 8
+
+CPU benchmarks compiled to WebAssembly and executed in
+
+Firefox and Chrome, and the SPEC CPU benchmarks com- piled to native code (Section 3). Table 2 lists the performance counters we use here
+
+We use BROWSIX-SPEC to record measurements from all supported performance counters on our system for the SPEC
+
+Dito.
+
+Page 10
+
+As with matmul (Section 5.1.1), the WebAssembly compiled SPEC CPU benchmarks also suffers from larger code size. The code generated by Chrome and Firefox for WebAssembly is invariably larger than that generated by clang.
+
+We use three performance counters to measure this ef- fect. (i) Figure 10a shows the number of instructions retired by benchmarks compiled to WebAssembly and executed in Chrome and Firefox relative to the number of instructions retired in native code. Similarly, Figure 10b shows the rela- tive number of CPU cycles spent by benchmarks compiled to WebAssembly, and Figure 11 shows the relative number of L1 instruction cache load misses.
+
+Page 11
+
+This paper performs the first comprehensive performance analysis of WebAssembly.
+
+Several papers use performance counters to analyze the SPEC benchmarks. Panda et al. [19] analyzes the SPEC CPU2017 benchmarks, applying statistical techniques to iden- tify similarities among benchmarks.
+
+We identify the causes of these performance gaps, providing actionable guidance for future optimization efforts.
+
+\end{comment}
+
+\begin{comment}
+
+NielsonWilliamsonArlitt2008
+
+Page 1
+
+Explorer, Opera, and Safari), and testing them with a small set of realistic micro-benchmarks.
+
+This paper presents benchmark performance test results for four popular browsers (Firefox, IE, Opera, and Safari) currently available on the Internet. The results indicate substantial differences among browsers across the range of tests considered, particularly in rendering speed and JavaScript string operation performance.
+
+The first graphical Web browser, Mosaic [4], was released in 1993, making the World Wide Web accessible to everyone,
+
+There are two main contributions in this paper. The first contribution is a direct performance comparison of modern Web browsers, with sufficient drill-down to the component level.
+
+About a year later, Marc Andreesen founded Netscape, which released Navigator as its flagship product. In the following year, Microsoft joined the race by releasing its Web browser: Internet Explorer.
+
+This work represents a snapshot of current Web browser performance
+
+A second (and perhaps more lasting) contribution is our experimental methodology, which can easily be applied to a broader set of browsers, or longitudinally to an evolving set of browsers over time.
+
+how does a user select which Web browser to use?
+
+We argue that performance (i.e., responsiveness) is one of the factors influencing this decision.
+
+Performance-related research on Web user experience typi- cally focuses on reducing the latency of page retrievals
+
+Two techniques are typically used to reduce retrieval latencies: caching and prefetching.
+
+the advent of “Web 2.0” and the “services computing” paradigm have made the Web the preferred platform for numerous novel applications, and many of these rely heavily on client-side processing to facilitate interactivity for users and scalable deployments for service providers.
+
+The purpose of this paper is to present an apples-to-apples comparison of modern Web browsers, with respect to their browsing performance. We carry out this work experimentally, using four commonly-used Web browsers (Firefox, Internet
+
+Page 2
+
+A rendering engine, also known as a layout engine [24], has the important task of displaying a Web page. Over time this task has become more complicated, with the ongoing evolution of the HTML standard, the continual addition of features, and the large-scale usage of Cascading Style Sheets (CSS).
+
+Similar to a rendering engine, a scripting engine is also an important component of a Web browser. This engine’s responsibility is to interpret JavaScript (or similar) code that is embedded in a Web page.
+
+Modern Web browsers are composed of several parts. Each browser must have a rendering engine to create the layout and appearance of a Web page, a scripting engine to interpret and execute JavaScript (or similar) scripting code on a Web page, and a user interface that includes page navigation controls, as well as many other features (e.g., history, preferences, plugins) created by the browser designer.
+
+Our experiments were conducted in a typical desktop PC environment, using the commonly-used Web browsers listed in Table I. We used the latest stable version available for each browser, along with the known bug fixes available at the time. All of the experiments were performed on an Intel Core2 CPU 6600 (dual core, 2.40 GHz), with 3 GB of RAM and running Windows XP Professional SP2. To compare the performance of Web browsers, we use a set of benchmark tests. The tests are selected and designed in such a way as to exercise the typical tasks handled by a browser.
+
+There are many factors that affect the performance of these browser operations. Therefore the goal was to design the tests to focus on the performance of the browser itself, while eliminating or isolating external factors (e.g., operating system, TCP implementation, network latency, server load). In addition, each test is meant to exercise a single specific element of the browser. However, a few exceptions had to be made. For example, to perform the timing and control of the rendering test, a snippet of JavaScript was required.
+
+Details on these browsers are provided in Table I. The table shows the rendering engine and JavaScript engine used in each of these four browsers. It also shows the current version of the browser used in our tests.
+
+TABLE I SUMMARY OF WEB BROWSERS TESTED
+
+Make a similar table for all browers tested in my thesis.
+
+Write a similar passage in my thesis.
+
+Page 3
+
+For JavaScript benchmarking, we used Apple’s SunSpider JavaScript Benchmark [21]. This benchmark performs a thor- ough coverage of function calls, and is well recognized as a reliable measure of a browser’s JavaScript performance.
+
+The SunSpider test covers 9 aspects of JavaScript perfor- mance: 3D manipulation, access, bit operations, control flow, cryptography, date/time, mathematics, regular expressions, and string operations. The test was run using a local server to avoid significant network latency.
+
+The typical AJAX processing steps are as follows. A JavaScript function, often called by a timer or event, requests an XML object from the browser using HTTP. Using this object, the client sends a POST or GET request to the server (a PHP or other language script). The script on the server returns a response back to the browser, and the response is received by a previously specified JavaScript function. This function then updates the document based on the received response.
+
+The start-up test was run 6 times on each browser: 3 cold starts, and 3 warm starts. A cold start is when the browser is first loaded after booting the computer, while a warm start is when the browser is closed and then opened again soon.
+
+Dito.
+
+Page 4
+
+Each browser was tested using the SunSpider JavaScript test 3 times, with similar results each time. The results from these experiments are shown in Figure 2(a).
+
+The fastest browser for this test was Safari, which aver- aged just under 8 seconds per run.
+
+Finally, we conducted some forward-looking tests. Firefox 3.01 and Opera 9.51 have recently been released, and Internet Explorer 8 is in the beta-testing stage (beta 1). We conducted a few tests with these browsers, to assess the robustness of our relative performance claims, as well as the claims made by the developers about significant performance improvements over the current versions.
+
+...
+
+Page 5
+
+The experimental results for these next generation browsers are shown in Figure 3. These graphs use the same vertical axes2 as in Figure 2, to facilitate direct visual comparisons.
+
+In most (but not all) cases, the new versions do show im- proved performance. All of the new browsers show substantial improvements in the JavaScript test, which was previously dominated by Safari and Opera.
+
+This paper presented benchmark measurements evaluating the performance of modern Web browsers, primarily with respect to JavaScript, rendering, and AJAX performance. The experimental results show
+
+We believe that there are numerous avenues for future work. The most obvious is evaluating browser performance for
+
+...
+
+Page 6
+
+6
+
+Keeping all graphs on a single page like this is really useful to the reader.
+
+\end{comment}
+
+
+\begin{comment}
+
+RatanaworabhanLivshitsZorn2010
+
+Page 1
+
+JavaScript is widely used in web-based applications and is increasingly popular with developers.
+
+JavaScript benchmarks, including Sun- Spider [23] and V8 [10], are widely used to evaluate JavaScript performance
+
+This paper examines the following question: How rep- resentative are the SunSpider and V8 benchmarks suites when compared with the behavior of real JavaScript- based web applications?
+
+We find that the benchmarks are not representative of many real web sites and that conclusions reached from measuring the benchmarks may be misleading.
+
+We hope our re- sults will convince the JavaScript community to develop and adopt benchmarks that are more representative of real web applications.
+
+By instrumenting the Internet Explorer 8 JavaScript runtime, we measure the JavaScript behavior of 11 im- portant web applications and pages, including Gmail, Facebook, Amazon, and Yahoo.
+
+JavaScript is a widely used programming language that is enabling a new generation of computer applications.
+
+Used by large fraction of all web sites, including Google, Facebook, and Yahoo, JavaScript allows web applica- tions to be more dynamic, interesting, and responsive.
+
+Our results show that real web applications behave very differently from the benchmarks and that there are definite ways in which the benchmark behavior might mislead a designer.
+
+the performance of JavaScript is now a concern of ven- dors of every major browser
+
+has inspired aggressive new JavaScript implementations based on Just-In-Time (JIT) compilation strategies [8].
+
+The contributions of this paper include
+
+Page 2
+
+In recent years, the complexity of web content has spurred browser developers to increase browser perfor- mance in a number of dimensions, including improv- ing JavaScript performance.
+
+Because browser performance can significantly affect a user’s experience using a web application, there is commercial pressure for browser vendors to demonstrate that they have improved perfor- mance. As a result, JavaScript benchmark results are widely used in marketing and in evaluating new browser implementations.
+
+We find that while the benchmarks are compute- intensive and batch-oriented, real web applications are event-driven, handling thousands of events.
+
+While existing JavaScript benchmarks make mini- mal use of event handlers, we find that they are ex- tensively used in real web applications.
+
+JavaScript is a garbage-collected, memory-safe program- ming language with a number of interesting proper- ties [6].
+
+and tightly coupled with the browser’s Document Object Model [2].
+
+Scripts in web pages have become increasingly complex as AJAX (Asynchronous JavaScript and XML) programming has transformed static web pages into responsive applica- tions [11].
+
+Page 3
+
+we note that this kind of dynamic heap behavior is not captured by any of the V8 or SunSpider benchmarks
+
+In measuring the JavaScript benchmarks, we chose to use the entire V8 benchmark suite, which comprises 7 programs, and selected programs from the SunSpider suite, which consists of 26 different programs.
+
+Figure 2 lists the 11 real web applications that we used for our study2.
+
+Page 4
+
+The JavaScript engine in IE 8 interprets JavaScript source after compiling it to an intermediate representa- tion called bytecode. The interpreter has a loop that reads each bytecode instruction and implements its effect in a virtual machine
+
+In studying the behavior of JavaScript programs, we fo- cused on three broad areas: functions and code, ob- jects and data (omitted here), and events and handlers.
+
+Page 5
+
+Before drilling down into our results, we summarize the main conclusions of our comparison in Figure 4. The first column of the table indicates the specific behavior we measured, and the next two columns compare and contrast results for the real web applications and bench- marks. The last column summarizes the implications of the observed differences, specifically providing insights for future JavaScript engine designers.
+
+Page 8
+
+We have considered static and dynamic measures of JavaScript program execution, and discovered numerous important differences between the behaviors of the real applications and the benchmarks. Here we discuss how these differences might lead designers astray when build- ing JavaScript engines that optimize benchmark perfor- mance.
+
+Page 10
+
+Our results show that real web applications have much more JavaScript code than the SunSpider and V8 bench- marks and that most of that code is cold.
+
+Page 11
+
+There are surprisingly few papers measuring specific as- pects of JavaScript behavior, despite how widely used it is in practice.
+
+Page 12
+
+JavaScript web applications are large, complex, and highly interactive programs. While the functionality they implement varies significantly, we observe that the real applications have much in com- mon with each other as well. In contrast, the JavaScript benchmarks are small, and behave in ways that are sig- nificantly different than the real applications.
+
+An analysis of the dynamic behavior of JavaScript programs.
+
+\end{comment}
+
 
 %WebAssembly is according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} an option to JavaScript with higher performance. Higher performance makes way for demanding/truly high-performing applications/apps.
 
