@@ -1,6 +1,37 @@
 \section{Method}
 \label{method}
 
+Porting an full application is to big of a task for this thesis...
+
+
+To answer the research question (of which algorithms that most benefit from being written using WebAssembly) an technology-oriented experiment will be conducted \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. The tools that will be used are web browsers running on computing devices that will invoke JavaScript or WebAssembly. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is the most suited method …
+
+“Experiments are launched when we want control over the situation and want to manipulate behavior directly, precisely and systematically”
+
+“Experiments are appropriate to investigate different aspects [72, 162], including:
+Confirm theories, i.e. to test existing theories.
+Confirm conventional wisdom, i.e. to test people’s conceptions.
+Explore relationships, i.e. to test that a certain relationship holds.
+Evaluate the accuracy of models, i.e. to test that the accuracy of certain models is as expected.
+Validate measures, i.e. to ensure that a measure actually measures what it is supposed to.
+The strength of an experiment is that it can investigate in which situations the claims are true and they can provide a context in which certain standards, methods and tools are recommended for use.”
+
+Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
+
+
+Other methods are survey or case study. See wohlin et al.
+table on page 124.
+
+While an experiment is a good choice as outlined above, the selected method also has its drawbacks.
+
+While an experiment has both execution control, measurement control, and is easy to replicate the investigation cost is higher compared to a survey or a case study and requires more resources. In practice this means that for this thesis a access to a set of computing devices is needed. There is also a time investment to be done to write and exececute all tests. The output of this thesis can not be directly commercialiest. \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}
+
+An experiment is dependent on dependent, independent and unknown variables (Wohlin et al.). 
+The dependent variables is the execution time in milliseconds. Other dependent variables could have been the size on disk of the compilation target, or the size of memory consumed while executing. The choice of execution time is because ….
+
+There are three independent groups of independent variables. The primary one is the compilation target, JavaScript/asm.js or WebAssembly. The second one is which browser and by extension which engine that parses the compilation target. The third is the platform upon which that browser runs. A platform can be defined either by the operating system (macos, windows, linux, ios, android), by the type of processor (arm or x86), or by the type of hardware (desktop computer, laptop computer, tablet, or mobile phone). In practice many elements of a platform is mutual exclusive, e.g. iOS is only available on tablets and mobile phones from Apple.
+
+
 To answer the research question a \emph{quantitative} method can be used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
 
 To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
@@ -12,6 +43,24 @@ To evaluate performance a benchmarking test suite this thesis will take the appr
 According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment.
 
 Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
+
+“1.	
+Scoping
+ 
+2.	
+Planning
+ 
+3.	
+Operation
+ 
+4.	
+Analysis and interpretation
+ 
+5.	
+Presentation and package”
+
+Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
+
 
 \hl{variabler och faktorer samt for och nackdelar med respektive metod, anvand wohlin som referens}
 

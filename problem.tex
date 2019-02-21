@@ -1,9 +1,39 @@
 \section{Problem}
 \label{problem}
 
+Benchmarking WebAssembly has been done before. Roosberg et al. (2017) used PBench… to compare multimatrix etc (ref), x compared a and b, and z ported Browsnix to webassembly and evaluated performance of unix applications running within the web browser using x. Of these only z has compared JavaScript and WebAssembly and the study is more of a showcase for their compiler and is missing breadth.
+
+To my knowledge no studies has yet been done where performance-critical internals of a popular web app has been rewritten in WebAssembly and compared with its JavaScript counterpart. 
+
+Which type of work should be replaced with WebAseembly? Is there a point to replace all JavaScript?
+Which algorithms gives the best value for the time and effort of porting them? In which browsers?
+Which algorithms are best suited to be replaced with WebAssembly? And in which browsers? Does the type of platform matter?
+
+This thesis aims to implement a test suite that contain a set of tests with different characteristics implemented in both JavaScript and WebAssembly. The tests is aimed to be representing common tasks within web apps \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}.
+The runtime of the tests will then be executed and compared on all major browsers on all major platforms.
+
+The result will be analyzed and evaluated to provide future work with an understanding on to start working on when porting real-world applications.
+
+This thesis examines the following question: X. "More importantly ..."
+
+...
+
+The contribution of this thesis include
+
+\begin{itemize}
+    \item x
+    \item y
+\end{itemize}
+
+
+
+
+
 The problem is to benchmark and evaluate any significant performance improvements \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017,ReiserBlaser2017,Zakai2018} when using WebAssembly instead of JavaScript to implement algorithms commonly executed in modern web applications such as compression, encryption, sorting, floating point calculations, regular expressions, 2D and 3D rendering.
 
 There are different ways to do this as described by \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012}. One way would be to take an existing application and change the internals from JavaScript to WebAssembly and compare that from a end user perspective this would have the benefit of [...], but is not possible due to [...]. Another way would be to investigate perceived performance [...]. A third option taken in this thesis is to compile a set of tests into both JavaScript/asm.js and WebAssembly. Where each test represent a specific algorithm. Then run the all tests on a multitude of different web browsers on different platforms (desktop, tablets, and mobile phones), compare the result and reason about the differences.
+
+% Jag tänker ännu lite mera specifikt, att frågan kan vara att ta reda på i vilka fall som man får prestandavinst. Problemet är att det är svårt att veta vilka algoritmer som är lämpliga för att utvärdera detta. Artefakten kan då bestå av algoritmerna som gör webb-applikations-relevanta saker för att se vilka av dem som är bättre i vilken plattform.
 
 % in modern web browsers as   leave to method
 
@@ -15,7 +45,7 @@ There are different ways to do this as described by \textcite{WohlinRunesonHostO
 
 \subsection{Hypothesis}
 
-The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript in all browsers on all platforms.
+The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript in all browsers on all platforms/a majority of the tests.
 
 \hl{specific situation, e.g. less so when manipulating dom}
 
