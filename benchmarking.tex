@@ -1,11 +1,11 @@
-Replacing certain type of JavaScript with WebAssembly raises the question of how to Benchmark WebAssembly. 
+% One example of how JavaScript and WebAssembly could complement each other is to port selected portions of a popular framework or web app for improved performance without changing it's interface.
 
-\textcite{CaiNerurkarWu1998} notes that there are plenty of examples of benchmark cheating either accidentally or on purpose. 
-
-It's important to be aware of how benchmarking work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}. It's also important to be aware of what is actually measured and why. As described by \textcite{JangdaPowersGuhaBerger2019} the use of the PolyBenchC benchmark suite used by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} measures polyhedral loop optimizations which may not be representative of web apps.
+Before porting selected parts of a popular framework or web app from JavaScript to WebAssembly it would be useful to know which parts to port. This thesis aims to help making such decisions by benchmarking the same code compiled to both JavaScript/asm.js and WebAssembly code. When developing a benchmarking suite it's important to be aware of how benchmarking work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}. According to \textcite{CaiNerurkarWu1998} tests and data should be randomly selected. The ideal benchmark suite is representativ, optimal, repeatable and uncheatable, but in practice most benchmarks are not \parencite{CaiNerurkarWu1998}.
 
 
+When running a benchmarking suite it's important to be aware of what is actually measured and why. As described by \textcite{JangdaPowersGuhaBerger2019} the use of the PolyBenchC benchmark suite used by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} measures polyhedral loop optimizations which may not be representative of web apps.
 
+%\textcite{CaiNerurkarWu1998} notes that there are plenty of examples of benchmark cheating either accidentally or on purpose. 
 
 \begin{comment}
 CaiNerurkarWu1998
@@ -54,13 +54,9 @@ A more dicult problem is to prevent short cut. A short cut is an easier (fast
 
 A smart compiler could recognize that there is a closed formula for this computation, and replace the loop by the formula x = N(N 1) =2.
 
-Bail91
-
 Page 3
 
 at runtime, the vendors cannot predict and thus cannot
-
-\optimize" on specic test data.
 
 Based on the tremendous progress made in recent years in theoretical computer science [ALMSS, Fre79, GGM86], especially with regard to our understand- ing of the power of randomization and interaction, it becomes possible to make a wide variety of existing benchmarks more accurate, resistant to tampering and more trustworthy. In making benchmarks more resis- tant to tampering, we use tools from complexity the- ory including one-way functions, trapdoor functions, and randomization. These methods make benchmarks uncheatable.
 
@@ -69,12 +65,6 @@ In our schemes, the benchmark test routines are public and data is randomized at
 We presenttwwo methods to gain computational ad- vantage in judging performance claims. In the rst approach, the tester gains a computational advantage via a hidden \secret," which is also randomly gener- ated. With the secret information, the tester can know, or can easily compute, the correct answer in advance. This approach is called the Secret Key (SK) method.
 
 Secondly, for many problems, verifying the result is easier than computing it [Fre79]. For example, verify- ing the result of a linear equation solver can be accom- plished faster than any known algorithm which com- putes it.
-
-We propose a Realistic Uncheatable Benchmark Suite (RUBS).
-
-The uncheatable benchmarks satisfy the following conditions:
-
-This asymmetry allows the tester a compu- tational advantage over the vendor. This approachis called the Result Verication (RV) method.
 
 Computation performed is checked for correctness and accuracy (which is mostly not the case with existing benchmarks).
 
@@ -86,45 +76,11 @@ In order to avoid the problems with conventional benchmarks, where vendors could
 
 Since these test data are generated \on demand"
 
-Page 7
-
-Wehavve designed and implemented the Realis- tic Uncheatable Benchmark Suite (RUBS). It resides in \http://www-ece2.engr.ucf.edu/~wu/Rubs/"
-
-In order to makeRUUBSaweeb-based system with the user being able to point and click to run a benchmark, wehavve implemented it in Java, similar to [LINjava]. It is implemented as a client-server system for accurate realtime measurement of benchmark execution time.
-
-Page 8
-
-Experiments were conducted to test whether the ideas work in practice as well as in theory
-
-Page 10
-
-This paper presented the design and implementa- tion of uncheatable benchmarks. Tools from theoreti- cal computer science including randomization, one-way functions, and trapdoor functions are used to develop the uncheatable benchmark.
-
 \end{comment}
 
 \begin{comment}
 
 JangdaPowersGuhaBerger2019
-
-Page 1
-
-WebAssembly is specifically intended to serve as a univer- sal compilation target for web browsers
-
-Unlike past approaches to achieve native or near-native speed for code running inside the browser (e.g., ActiveX [11], Google Native Client and Portable Native Client [4, 12], and asm.js [26]), WebAssembly is intended to not only be fast but also to be safe (providing formal safety guarantees) and highly portable
-
-All major web browsers now support WebAssembly, a low- level bytecode intended to serve as a compilation target for code written in languages like C and C  .
-
-A key goal ofWeb- Assembly is performance parity with native code; previous work reports near parity, with many applications compiled to WebAssembly running on average 10% slower than na- tive code.
-
-It is now supported by all major browsers
-
-However
-
-C#, Go
-
-standard Unix APIs are not available in the web browser environment. To address this challenge, we build BROWSIX-WASM
-
-makes it possible to run unmodified WebAssembly-compiled Unix applications directly inside the browser
 
 Because WebAssembly is low level and strictly typed, it offers the promise of higher performance than JavaScript. The paper introducing WebAssembly [15] presents results show- ing that code compiled to WebAssembly executing on Google Chrome’s V8 engine runs 34% faster than code compiled to JavaScript (asm.js). It also achieves competitive perfor- mance versus native code: of the 24 benchmarks evaluated, seven run within 10% of native execution and almost all of them run less than 2× slower.
 
@@ -409,8 +365,7 @@ An analysis of the dynamic behavior of JavaScript programs.
 
 \end{comment}
 
-
-There are good reasons to not measure web applications performance using benchmarks \hl{ref,ref}. The purpose of this thesis is to present areas where WebAssembly specifically good to use. As with WebAssembly compared to JavaScript, the former is not meant to replace the latter, and it's not in all cases better to use WebAssembly over JavaScript. (the results show?)
+% There are good reasons to not measure web applications performance using benchmarks \hl{ref,ref}. The purpose of this thesis is to present areas where WebAssembly specifically good to use. As with WebAssembly compared to JavaScript, the former is not meant to replace the latter, and it's not in all cases better to use WebAssembly over JavaScript. (the results show?)
 
 
 %WebAssembly is according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} an option to JavaScript with higher performance. Higher performance makes way for demanding/truly high-performing applications/apps.

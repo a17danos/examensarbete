@@ -1,66 +1,41 @@
 \section{Method}
 \label{method}
 
-Porting an full application is to big of a task for this thesis...
+To answer the research question a technology-oriented experiment will be conducted \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment. Other methods that could have been used are surveys or case studies \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. A survey is not an appropriate way to address the specific research question. A case study could have been conducted but falls short on the fact that as of today few WebAssembly implementations exists.
 
+% According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is the most suited method when systematically manipulating a behavior to explore relationships and confirm theories.
 
-To answer the research question (of which algorithms that most benefit from being written using WebAssembly) an technology-oriented experiment will be conducted \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. The tools that will be used are web browsers running on computing devices that will invoke JavaScript or WebAssembly. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is the most suited method …
+% There are different ways to do this as described by \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012}. One way would be to take an existing application and change the internals from JavaScript to WebAssembly and compare that from a end user perspective this would have the benefit of [...], but is not possible due to [...]. Another way would be to investigate perceived performance [...]. 
 
-“Experiments are launched when we want control over the situation and want to manipulate behavior directly, precisely and systematically”
+% A third option taken in this thesis is to compile a set of tests into both JavaScript/asm.js and WebAssembly. Where each test represent a specific algorithm. Then run the all tests on a multitude of different web browsers on different platforms (desktop, tablets, and mobile phones), compare the result and reason about the differences.
 
-“Experiments are appropriate to investigate different aspects [72, 162], including:
-Confirm theories, i.e. to test existing theories.
-Confirm conventional wisdom, i.e. to test people’s conceptions.
-Explore relationships, i.e. to test that a certain relationship holds.
-Evaluate the accuracy of models, i.e. to test that the accuracy of certain models is as expected.
-Validate measures, i.e. to ensure that a measure actually measures what it is supposed to.
-The strength of an experiment is that it can investigate in which situations the claims are true and they can provide a context in which certain standards, methods and tools are recommended for use.”
+%To answer the research question (of which algorithms that most benefit from being written using WebAssembly) an technology-oriented experiment will be conducted \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. The tools that will be used are web browsers running on computing devices that will invoke JavaScript or WebAssembly. According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is the most suited method …
 
-Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
+%“Experiments are launched when we want control over the situation and want to manipulate behavior directly, precisely and systematically”
 
+%While an experiment is a good choice as outlined above, the selected method also has its drawbacks.
 
-Other methods are survey or case study. See wohlin et al.
-table on page 124.
+While an experiment has both execution control, measurement control, and is easy to replicate the investigation cost is higher compared to a survey or a case study and requires more resources \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. In practice this means that for this thesis a access to a set of computing devices is needed. There is also a time investment to be done to write and exececute all test cases. The output of this thesis can not be directly commercialized.
 
-While an experiment is a good choice as outlined above, the selected method also has its drawbacks.
+%An experiment is related to a of a number of variables \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}. 
+The dependent variables is the execution time in milliseconds. Other dependent variables could have been the size on disk of the compilation target, or the size of memory consumed while executing. The choice of execution time was made based on the notion that execution time is the most important variable for the end user. There are a number of independent variables: compilation target, web browser, operating system, and computing platform.
 
-While an experiment has both execution control, measurement control, and is easy to replicate the investigation cost is higher compared to a survey or a case study and requires more resources. In practice this means that for this thesis a access to a set of computing devices is needed. There is also a time investment to be done to write and exececute all tests. The output of this thesis can not be directly commercialiest. \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012}
+%There are three independent groups of independent variables: compilation target, web browser,. The primary one is the compilation target, JavaScript/asm.js or WebAssembly. The second one is which browser and by extension which engine that parses the compilation target. The third is the platform upon which that browser runs. A platform can be defined either by the operating system (macos, windows, linux, ios, android), by the type of processor (arm or x86), or by the type of hardware (desktop computer, laptop computer, tablet, or mobile phone). In practice many elements of a platform is mutual exclusive, e.g. iOS is only available on tablets and mobile phones from Apple.
 
-An experiment is dependent on dependent, independent and unknown variables (Wohlin et al.). 
-The dependent variables is the execution time in milliseconds. Other dependent variables could have been the size on disk of the compilation target, or the size of memory consumed while executing. The choice of execution time is because ….
+%To answer the research question a \emph{quantitative} method can be used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
 
-There are three independent groups of independent variables. The primary one is the compilation target, JavaScript/asm.js or WebAssembly. The second one is which browser and by extension which engine that parses the compilation target. The third is the platform upon which that browser runs. A platform can be defined either by the operating system (macos, windows, linux, ios, android), by the type of processor (arm or x86), or by the type of hardware (desktop computer, laptop computer, tablet, or mobile phone). In practice many elements of a platform is mutual exclusive, e.g. iOS is only available on tablets and mobile phones from Apple.
+%To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
 
+%To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. 
 
-To answer the research question a \emph{quantitative} method can be used in the form of a synthetic benchmark. A complement or a replacement for the use a synthetic benchmark would be to convert an existing JavaScript-project, such as a popular JavaScript framework/library, to WebAssembly and study the result.
+This thesis aims to implement a test suite that contain a set of test cases with different characteristics implemented in both JavaScript/asm.js and WebAssembly. The test cases are aimed to be representing common tasks \parencite{WohlinRunesonHostOhlssonRegnellWesslen2012} in modern web applications such as compression, encryption, sorting, floating point calculations, regular expressions, 2D and 3D rendering. Some test cases such as DOM manipulation can unfortunately not be tested as they are not yet supported by WebAssembly. The runtime of the test cases will be executed and compared on all major browsers on all major operating systems on all major computing platforms.
 
-To describe more differences more research questions is needed. To answer questions such as wether a certain technology (i.e. WebAssembly) is usable \emph{qualitative} methods should be used. Qualitative methods would provide a better perspective on WebAssembly.
+Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript/asm.js using Emscripten.
 
-\hl{glom ej nackdelar med experiment!!!}
+%The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
 
-To evaluate performance a benchmarking test suite this thesis will take the approach of implementing a benchmarking suite of tests written in C/C++. 
-
-According to \textcite{WohlinRunesonHostOhlssonRegnellWesslen2012} an experiment is appropriate to precisely and systematically measure something in a controlled environment.
-
-Each test will be an implementation of an algorithm chosen to test a specific aspect of WebAssembly and will be compiled from C/C++ to both WebAssembly and JavaScript using Emscripten. The suite will run tests, first using JavaScript and then using WebAssembly, one by one. After each run has completed the time it took to execute will be displayed in milliseconds. Table \ref{table:suite} provides a logical layout of the test suite.
-
-“1.	
-Scoping
- 
-2.	
-Planning
- 
-3.	
-Operation
- 
-4.	
-Analysis and interpretation
- 
-5.	
-Presentation and package”
-
-Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
-
+\begin{comment}
+    
 
 \hl{variabler och faktorer samt for och nackdelar med respektive metod, anvand wohlin som referens}
 
@@ -79,26 +54,65 @@ Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn
 \caption{Test suite logical layout using mock data}
 \label{table:suite}
 \end{table}
+\end{comment}
 
 The suite of compiled tests will be published as open source on Github\footnote{http://github.com/a17danos}. The test suite will be executed on the latest versions of the web browsers Chrome, Edge, Firefox and Safari. The result will be statistically evaluated using ANOVA in order to answer the research question.
 
-To answer the research question an experiment will be executed by running the benchmarking suite, similar to what has been done before by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} and \textcite{Zakai2018}.
+%To answer the research question an experiment will be executed by running the benchmarking suite, similar to what has been done before by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}, \textcite{ReiserBlaser2017}, \textcite{,HerreraChenLavoieHendren2018} and \textcite{Zakai2018}.
 
 %The results will be used as a baseline.
 
-The benchmarking suite will be executed twice, once on the latest version of Windows, and once on the latest version of macOS. Given that Safari is only available on macOS and Edge is only available on Windows the test suite will only be executed one on those web browsers.
+%The benchmarking suite will be executed twice, once on the latest version of Windows, and once on the latest version of macOS. Given that Safari is only available on macOS and Edge is only available on Windows the test suite will only be executed one on those web browsers.
 
-\hl{Should I (also) execute these tests on mobile phones? Running the tests is not really a challenge or particullary time consuming.}
+%\hl{Should I (also) execute these tests on mobile phones? Running the tests is not really a challenge or particullary time consuming.}
 
-The two operating systems will run on the same computer, a Macbook Pro. Windows will be installed using BootCamp\footnote{https://support.apple.com/boot-camp}. The two operating systems will be freshly installed (non-OEM) and cooled off in 24 hours so that all indexing has been done executing. The benchmarking will be performed with the power cord connected and the computer will \emph{not} be connected to the internet (during the benchmarking).
+%The two operating systems will run on the same computer, a Macbook Pro. Windows will be installed using BootCamp\footnote{https://support.apple.com/boot-camp}. The two operating systems will be freshly installed (non-OEM) and cooled off in 24 hours so that all indexing has been done executing. The benchmarking will be performed with the power cord connected and the computer will \emph{not} be connected to the internet (during the benchmarking).
 
-This method is designed for high validity with as few hidden variables as possible. The test suite will be executed $1 000$ times (in a row) to provide high reliability.
+%This method is designed for high validity with as few hidden variables as possible. The test suite will be executed $1 000$ times (in a row) to provide high reliability.
 
 \subsection{Ethics}
 
-This experiment does not include any other humans than the author pressing the button to start the experiment. WebAssembly och asm.js are both open specifications. Emscripten is open source, available on Github. The forthcoming benchmarking test suite will be open source and available on Github. The results along with this thesis is available on Github. WebAssembly and JavaScript is executed in sandboxed environment which means that even if there would be nefarious code in the test suite running the test suite would not be able to spread a computer virus or spy on the computer on which it was executed.
+This experiment does not include any other humans than the author pressing the button to start the experiment. WebAssembly och asm.js are both open specifications. Emscripten is open source, available on Github. The forthcoming benchmarking test suite will be open source and available on Github. The results along with this thesis is available on Github. WebAssembly and JavaScript is executed in sandboxed environment which means that even if there would be nefarious code in the test suite running the test suite would not be able to spread a computer virus or spy on the computer on which it was executed. The benchmark suite will be implemented based on best practices for implementing test cases such as the guidelines outlined by \textcite{CaiNerurkarWu1998} in an effort to provide as reliable results as possible.
 
-\hl{problemen med bechmark och oschtrictet med referens}
+%\hl{problemen med bechmark och oschtrictet med referens}
+
+
+\begin{comment}
+
+    “1.	
+Scoping
+ 
+2.	
+Planning
+ 
+3.	
+Operation
+ 
+4.	
+Analysis and interpretation
+ 
+5.	
+Presentation and package”
+
+Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
+
+    
+
+“Experiments are appropriate to investigate different aspects [72, 162], including:
+Confirm theories, i.e. to test existing theories.
+Confirm conventional wisdom, i.e. to test people’s conceptions.
+Explore relationships, i.e. to test that a certain relationship holds.
+Evaluate the accuracy of models, i.e. to test that the accuracy of certain models is as expected.
+Validate measures, i.e. to ensure that a measure actually measures what it is supposed to.
+The strength of an experiment is that it can investigate in which situations the claims are true and they can provide a context in which certain standards, methods and tools are recommended for use.”
+
+Excerpt From: Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell and Anders Wesslén. “Experimentation in Software Engineering”. Apple Books. 
+
+
+Other methods are survey or case study. See wohlin et al.
+table on page 124.
+
+\end{comment}
 
 \begin{comment}
 “Any empirical research activity involving human subjects must take ethical aspects into consideration. Some aspects are regulated by national laws, others are not regulated at all. Andrews and Pradhan identified ethical issues in software engineering, and found existing policies to be insufficient [3]. Hall and Flynn surveyed ethical practice and awareness in the UK, and found alarming unawareness [71], and nothing indicates this country being an exception.
