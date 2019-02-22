@@ -1,28 +1,36 @@
 %  can also ship a program that acts as a virtual machine and thus run other languages in webassembly today
 
-WebAssembly can be seen as the forth core web technology as illustrated in Figure \ref{figure:webtechnologies-timeline}. It's the first technology to be universally adopted by all major web browser vendors \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}.
-
-WebAssembly\footnote{https://webassembly.org/} (Wasm) is described by \textcite{Watt2018} as a low-level language designed to become a universal compilation target for the web. According to it's original authors \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} WebAssembly is a portable assembly-language for web browsers and future adaptations. Technically WebAssembly is bytecode created by \emph{compiling} (any form of) code to WebAssembly \parencite{Watt2018} which then can be executed in any WebAssembly-engine. This can be compared with JavaScript-code that is \emph{interpreted} while running inside a JavaScript-engine.
+WebAssembly\footnote{https://webassembly.org/} (Wasm) is described by \textcite{Watt2018} as a low-level language designed to become a universal compilation target for the web. According to it's original authors \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} it's a portable assembly-language for web browsers and future adaptations. Technically WebAssembly is bytecode created by \emph{compiling} (any form of) code to WebAssembly \parencite{Watt2018} which then can be executed in any WebAssembly-engine. This can be compared with JavaScript-code that is \emph{interpreted} while running inside a JavaScript-engine.
 
 WebAssembly can be seen as a successor to earlier technologies such as asm.js from Mozilla (previously discussed) and Native Client (NaCL) from Google. NaCL executes native code in a separate part of Chrome and asm.js  \parencite{Zakai2018} is a subset of JavaScript optimized for performance \parencite{VanEsNicolayStievenartDHondtDeRoover2016} and can be interpreted in any web browser.
 
-Earlier work on what today is WebAssembly has also resulted in EmScripten \parencite{Zakai2011}, a compiler based on LLVM \parencite{LattnerAdve2014} that originates as a transpiler from JavaScript to asm.js \parencite{Zakai2011} that has been further developed \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} and is now able to compile both JavaScript and C/C++ to both asm.js and WebAssembly. EmScripten is the most common compiler to compile WebAssembly.
+% WebAssembly can be seen as the forth core web technology as illustrated in Figure \ref{figure:webtechnologies-timeline}. It's the first web technology since 1996 to be universally adopted by all major web browser vendors \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}.
 
-WebAssembly is the result of joint research and development between Apple, Google, Microsoft and Mozilla \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. WebAssembly has as the first technology since JavaScript full support in Chrome, Edge, Firefox and Safari. Those web browsers that does not support WebAssembly can according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} use asm.js as polyfill. WebAssembly is already being used where performance is of high importance, such as to generate cryptocurrency \parencite{RuthZimmermannWolsingHohlfeld2018}.
+% WebAssembly is the first addition to the core web technologies that is already supported in all major web browsers. WebAssembly is a binary and text assembly-like format that enabled native code to run inside the web browsers, which enables safer applications which higher performance. Currently WebAssembly applications are mostly written in C and C++, but work is being done to enable garbage collected languages such as Java and JavaScript to be compile to WebAssembly.
+
+%Earlier work on what today is WebAssembly is what resulted in 
+
+EmScripten \parencite{Zakai2011}, a compiler based on LLVM \parencite{LattnerAdve2014} that originates as a source-to-source compiler from JavaScript to asm.js \parencite{Zakai2011} has been further developed \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} and is now able to compile to both asm.js \emph{and} WebAssembly.
+
+%EmScripten is the most common compiler to compile WebAssembly.
+
+WebAssembly is the result of joint research and development between Apple, Google, Microsoft and Mozilla \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. WebAssembly has as the first technology since JavaScript full support in Chrome, Edge, Firefox and Safari and could as such be described as the forth core web technology (Figure \ref{webtechnologies-timeline}). Those web browsers that does not support WebAssembly can use asm.js as polyfill \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. WebAssembly is already being used where performance is of high importance, such as to generate cryptocurrency \parencite{RuthZimmermannWolsingHohlfeld2018}.
 
 Initially WebAssembly supports code written in C/C++ \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. 
 The focus on C/C++ is largely based on WebAssembly implementation limitations such as the lack of garbage collection. According to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} its a highly prioritized goal to allow WebAssembly to gain to access the web browsers built in garbage collector and that way support languages that use garbage collection.
 
 WebAssembly is loaded as a module via a JavaScript API or another WebAssembly module \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}. It's \emph{not} a goal to have WebAssembly replace JavaScript\footnote{https://webassembly.org/docs/faq/\#is-webassembly-trying-to-replace-javascript}, the idea is that they \emph{complement} each other. One example of how JavaScript and WebAssembly could complement each other is to replace large portions of JavaScript within popular JavaScript-frameworks with WebAssembly, but keep the JavaScript API towards the developer and thus only provide the benefit of performance.
 
-It's important to notice that WebAssembly in it's current form is a new technology with a few serious limitations (REF). 
+%%%
 
-There is also certain things that cannot be done using Wasm.
+%It's important to notice that WebAssembly in it's current form is a new technology with a few serious limitations (REF). 
 
-dom-manipulation (has to go through javascript)
-passing strings (workarounds can be engineerd)
-invoking wasm-modules from other wasm-modules
+%There is also certain things that cannot be done using Wasm.
 
-WebAssembly is new technology. The first articles about WebAssembly was published in 2017 \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017,ReiserBlaser2017}.
+%dom-manipulation (has to go through javascript)
+%passing strings (workarounds can be engineerd)
+%invoking wasm-modules from other wasm-modules
+
+%WebAssembly is new technology. The first articles about WebAssembly was published in 2017 \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017,ReiserBlaser2017}.
 
 % https://caniuse.com/#feat=wasm

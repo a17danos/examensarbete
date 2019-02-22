@@ -1,11 +1,18 @@
 \section{Problem}
 \label{problem}
 
-Benchmarking WebAssembly has been done before. Roosberg et al. (2017) used PBench… to compare multimatrix etc (ref), x compared a and b, and z ported Browsnix to webassembly and evaluated performance of unix applications running within the web browser using x. Of these only z has compared JavaScript and WebAssembly and the study is more of a showcase for their compiler and is missing breadth.
+There are 
+
+WebAssembly has been previously benchmarked. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} used PolyBenchC to compare WebAssembly to JavaScript/asm.js finding that WebAssembly is 33.7\% faster. \textcite{JangdaPowersGuhaBerger2019} ported BROWSIX \parencite{PowersVilkBerger2017}, a JavaScript implementation that provides a unix-like kernel inside a web browser, to compare WebAssembly and native code using the SPEC CPU benchmark suite. They also compared JavaScript and WebAssembly finding that WebAssembly is 1.3 times faster \parencite{JangdaPowersGuhaBerger2019}. \textcite{ReiserBlaser2017} compares JavaScript and WebAssembly using eight different tests \parencite[Table 1 in][]{ReiserBlaser2017} finding a more consistent performance using WebAssembly.
+
+\st{hejhej}
+
+\textcite{JangdaPowersGuhaBerger2019} notes that PolybenchC is a standard benchmark, but not representative of large web applications. SPEC CPU is closer to being a representativ benchmark but 
+The can be said for SPEC CPU and and the eight tests benchmarked by \textcite{ReiserBlaser2017}.
 
 To my knowledge no studies has yet been done where performance-critical internals of a popular web app has been rewritten in WebAssembly and compared with its JavaScript counterpart. 
 
-Which type of work should be replaced with WebAseembly? Is there a point to replace all JavaScript?
+Which type of work should be replaced with WebAssembly? Is there a point to replace all JavaScript?
 Which algorithms gives the best value for the time and effort of porting them? In which browsers?
 Which algorithms are best suited to be replaced with WebAssembly? And in which browsers? Does the type of platform matter?
 
@@ -17,13 +24,6 @@ The result will be analyzed and evaluated to provide future work with an underst
 This thesis examines the following question: X. "More importantly ..."
 
 ...
-
-The contribution of this thesis include
-
-\begin{itemize}
-    \item x
-    \item y
-\end{itemize}
 
 
 

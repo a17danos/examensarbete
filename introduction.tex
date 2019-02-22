@@ -1,19 +1,20 @@
 \section{Introduction}
 \label{introduction}
 
-\hl{references, references, references}
+The web was invented to enable information sharing between remote collaborators \parencite{BernersLeeCailliauLuotonenNielsenSecret1994}. JavaScript was intended to be used for simple tasks such as client-side form validation \parencite{Moller2018}, but lead the evolution of the web browser as a web page reader towards a platform for web applications.
 
-The core web technologies HTML, CSS and JavaScript has the been the same since the first half of 1990. They were invented for researchers to share documents with each other, but thas the last few years become incresingly popular as the underpining of web applications. The major enabler for web applications is JavaScript, which has since it was introduced in Netscape Navigator in 1995 been the only way to write program that could be interpreted by web browsers.
+WebAssembly is a portable assembly-language for the web \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} and can be seen as the forth core web technology. It's the first web technology since 1996 to be universally adopted by all major web browser vendors \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017}.
 
-WebAssembly is the first addition to the core web technologies that is already supported in all major web browsers. WebAssembly is a binary and text assembly-like format that enabled native code to run inside the web browsers, which enables safer applications which higher performance. Currently WebAssembly applications are mostly written in C and C++, but work is being done to enable garbage collected languages such as Java and JavaScript to be compile to WebAssembly.
+Replacing certain type of JavaScript with WebAssembly raises the question of how to Benchmark WebAssembly. It's important to be aware of how benchmarking work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}.
 
-Bechmarking JavaScript and WebAssembly is not a straight forward activity. ...
+This thesis makes the following contributions:
 
-[...]
+\begin{itemize}
+    \item Implementation of a number of relevant tests as both JavaScript/asm.js and WebAssembly,
+    \item provided in the form of a open source benchmarking suite,
+    \item executed on viable combinations of web browsers, operating systems and computing devices,
+    \item analyzed and evaluated to provide guidelines when porting JavaScript to WebAssembly.
+\end{itemize}
 
-This thesis is organised as follows. Chapter \ref{background} starts by describing the background of web applications, JavaScript, and asm.js the JavaScript subset focused on performance. Then the background continues by describing WebAssembly, the newest major addition to the core set of web technologies and ends with a section on the issue of benchmarking. The problem is described in chapter \ref{problem} in the form of a hypothesis and it's relation to previous work. To answer the hypothesis a quantiative experiment will be used as a method. The method is described in chapter \ref{method} together with a discussion on ethics. ...
-
-vs.
-
-The thesis is organised as follows. Chapter \ref{background} summarizes the core technologies in this thesis. Chapter \ref{problem} describes the research problem and previous work. Chapter \ref{method} outlines the experimental methodology and research ethics. 
+The rest of the thesis is organised as follows. Chapter \ref{background} summarizes core web technologies and discusses benchmarking. Chapter \ref{problem} describes the research problem and previous work. Chapter \ref{method} outlines the method and research ethics. 
 %The implementation is described in chapter \ref{implementation}, and the results and analysis is presented in chapter \ref{evaluation}. Chapter \ref{conclusion} concludes the thesis.

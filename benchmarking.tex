@@ -1,14 +1,11 @@
-Considering using WebAssembly to replace certain type of JavaScript raises the question of benchmarking. 
+Replacing certain type of JavaScript with WebAssembly raises the question of how to Benchmark WebAssembly. 
 
-\hl{koppla mot ovanstående}
+\textcite{CaiNerurkarWu1998} notes that there are plenty of examples of benchmark cheating either accidentally or on purpose. 
 
-% vi behöver ett kapitel som förklarar vad grunden ligger till problemen med benchmarking...
+It's important to be aware of how benchmarking work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}. It's also important to be aware of what is actually measured and why. As described by \textcite{JangdaPowersGuhaBerger2019} the use of the PolyBenchC benchmark suite used by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} measures polyhedral loop optimizations which may not be representative of web apps.
 
-Benchmarking is hard. As noted by \textcite{CaiNerurkarWu1998} there are plenty of examples of benchmark cheating either accidentally or on purpose. This pattern is particular prominent in todays race of having the fastest smartphone\footnote{https://www.anandtech.com/show/13318/huawei-benchmark-cheating-headache} \hl{felaktigt påstående utan forskning}. It's thus important to be aware of how benchmarks work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}. It's also important to be aware of what is actually measured and why. As described by \textcite{JangdaPowersGuhaBerger2019} the use of the PolyBenchC benchmark suite used by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} measures polyhedral loop optimizations which may not be representative of web apps.
 
-\hl{en viktig egenskap...}
 
-There are good reasons to not measure web applications performance using benchmarks \hl{ref,ref}. The purpose of this thesis is to present areas where WebAssembly specifically good to use. As with WebAssembly compared to JavaScript, the former is not meant to replace the latter, and it's not in all cases better to use WebAssembly over JavaScript. (the results show?)
 
 \begin{comment}
 CaiNerurkarWu1998
@@ -411,6 +408,9 @@ JavaScript web applications are large, complex, and highly interactive programs.
 An analysis of the dynamic behavior of JavaScript programs.
 
 \end{comment}
+
+
+There are good reasons to not measure web applications performance using benchmarks \hl{ref,ref}. The purpose of this thesis is to present areas where WebAssembly specifically good to use. As with WebAssembly compared to JavaScript, the former is not meant to replace the latter, and it's not in all cases better to use WebAssembly over JavaScript. (the results show?)
 
 
 %WebAssembly is according to \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} an option to JavaScript with higher performance. Higher performance makes way for demanding/truly high-performing applications/apps.
