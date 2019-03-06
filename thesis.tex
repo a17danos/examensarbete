@@ -10,15 +10,6 @@
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{floatrow}
 \floatsetup[table]{capposition=top}
-
-\lstdefinestyle{customabc}{
-  belowcaptionskip=1\baselineskip,
-  frame=L,
-  xleftmargin=\parindent,
-  language=[x86masm]Assembler,
-  basicstyle=\footnotesize\ttfamily,
-  commentstyle=\itshape\color{purple!40!black},
-}
 \newcommand{\listing}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
 
 %\setcounter{tocdepth}{2}

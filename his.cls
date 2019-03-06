@@ -62,8 +62,8 @@
 
 % Format references
 \RequirePackage[style=authoryear,url=false,doi=false,isbn=false,dashed=false,
-            mincitenames=3, maxbibnames=99,
-            uniquename=init,giveninits=true,
+            mincitenames=3,maxbibnames=99,
+            uniquename=false,giveninits=true,
             backend=biber]{biblatex}
 \addbibresource{bibliography.bib}
 % Enforce to have always a lastname-comma-firstname layout
