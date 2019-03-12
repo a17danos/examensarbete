@@ -1,12 +1,16 @@
 \section{Problem}
 \label{problem}
 
-WebAssembly has been benchmarked previously. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} used PolyBenchC, \textcite{JangdaPowersGuhaBerger2019} ported BROWSIX \parencite{PowersVilkBerger2017} to WebAssembly and used the SPEC CPU benchmark suite, and \textcite{ReiserBlaser2017} used eight different cases \parencite[Table 1 in][]{ReiserBlaser2017} to compare JavaScript/asm.js and WebAssembly.
+Before porting parts of a real-world framework or a web app from JavaScript to WebAssembly evaluating which parts that provide a high return of investment decreases risks \parencite{Boehm1991} and has the potential to save both time and money. According to \textcite{CaiNerurkarWu1998} benchmarking is an approach that is heavily used to evaluate different aspects of software. 
 
-This thesis examines the following question: \textbf{In which cases does WebAssembly provide a significant performance improvement?}
+WebAssembly has been benchmarked previously. \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} used PolyBenchC, \textcite{JangdaPowersGuhaBerger2019} ported BROWSIX \parencite{PowersVilkBerger2017} to WebAssembly and used the SPEC CPU benchmark suite, and \textcite{ReiserBlaser2017} used eight different cases \parencite[Table 1 in][]{ReiserBlaser2017} to compare JavaScript and WebAssembly. While previous work have published benchmark results, those benchmarks are not helpful for developers that has set out to port a framework or web app. No previous work has published a benchmarking suite with the objective to guide developers porting web apps or frameworks from JavaScript to WebAssembly.
 
-The result will be analyzed and evaluated to provide developers with an understanding on where to start when porting real-world frameworks and web applications. To the best of my knowledge no previous research that has addressed the same problem.
+When running a benchmarking suite it is important to be aware of what is actually measured and why. As described by \textcite{JangdaPowersGuhaBerger2019} the use of the PolyBenchC benchmark suite used by \textcite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} measures polyhedral loop optimizations which likely is not representative of web apps. Therefore, when implementing a benchmarking suite it is important to be aware of how benchmarking work and try to avoid mistakes such as dead code, known data sets and shortcuts \parencite{CaiNerurkarWu1998}. According to \textcite{CaiNerurkarWu1998} tests and data should be randomly selected. The ideal benchmark suite is representative, optimal, repeatable and uncheatable, but in practice most benchmarks are not \parencite{CaiNerurkarWu1998}.
 
-\subsection{Hypothesis}
+The aim of this thesis is to help developers make decisions on which parts to focus when porting source code from JavaScript to WebAssembly by implementing and publishing a diverse set of use cases written in C/C++ in the form of a benchmarking suite that can be repeatably executed by anyone in a web browser.
 
-The hypothesis is that there is a significant difference ($\alpha = 0,01$) in performance between WebAssembly and JavaScript/asm.js in test cases that are inherently static and computational intensive.
+The source code for all use cases will be compiled to optimized JavaScript in the form of asm.js and to WebAssembly. The compilation target will be benchmarked in all modern web browsers on both desktop and mobile computing devices. The result will be evaluated based on performance to provide developers with an understanding on which parts to focus when porting frameworks and web apps by identifying use cases that provide a high return of investment.
+
+This thesis examines the following research question: \textbf{In which use cases does WebAssembly provide a significant performance improvement?}
+
+The hypothesis is that WebAssembly has a significantly higher performance ($\alpha = 0,01$) than asm.js in use cases where the computational time complexity is high, such as mining crypto currency \parencite{RuthZimmermannWolsingHohlfeld2018} or calculating cryptographic hashes.
