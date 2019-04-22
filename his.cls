@@ -25,16 +25,16 @@
 % Support listings
 \RequirePackage{listings}
 \RequirePackage{caption}
-\captionsetup{font=footnotesize,labelfont=bf}
+\captionsetup{font=small,labelfont=bf}
 \lstset{
     aboveskip=0cm,
-    stringstyle=\footnotesize\ttfamily,
+    stringstyle=\small\ttfamily,
     showstringspaces = false,
-    basicstyle=\footnotesize\ttfamily,
+    basicstyle=\small\ttfamily,
     commentstyle=\color{gray!80},
     keywordstyle=\bfseries,
     ndkeywordstyle=\bfseries,
-    identifierstyle=\footnotesize\ttfamily,
+    identifierstyle=\small\ttfamily,
     tabsize=4,
     xleftmargin=3em,
     framexleftmargin=1em,

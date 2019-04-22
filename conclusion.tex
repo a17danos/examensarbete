@@ -5,7 +5,29 @@
 
 \subsection{Discussion}
 
+The downsides of the first version of WebAssembly is non-trivial.
+
+the loading of WebAssembly needs to become easier and preferably to be done without javascript by including a wasm file directly in a script tag.
+
+Not being able to pass other values than i32, i64, f32, and f64 without going through a buffer will be a hurdle for many.
+
+using garbage collected languages is also a problem as most frontend developers don't memory managed languages such as c/c++ and rust.
+
+It's important that wasm continues to evolve and produces a new version that overcomes these hurdles \emph{and} that browser vendors quickly updates their browsers to include support for these newer versions.
+
 [...]
+
+Optimization level matters? Did testing with different levels and got different results?...
+
+[...]
+
+The benchmarking suite generate the input for each run, but uses the same numbers to calculate both using WebAssembly and asm.js. There is no sum of results as the values should not be compared between browsers, but only between WebAssembly and asm.js for a given browser.
+
+[...]
+
+Personally I would like to see WebAssembly replace JavaScript and thus make javascript just another language that is loaded in WebAssembly as everything else (even though this is not performant).
+
+It would also be nice if the wasm toolchain was included in web developers toolchain so that they could leave the program in the source tree and not commit a generated wasm-file.
 
 \subsection{Future work}
 

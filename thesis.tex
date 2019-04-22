@@ -4,13 +4,18 @@
 \usepackage{subfiles}
 \usepackage{soulutf8}
 \usepackage{blindtext}
-
+\usepackage{hyperref}
+%\urlstyle{same}
 \usepackage{booktabs}
 \renewcommand{\arraystretch}{1.2}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{floatrow}
 \floatsetup[table]{capposition=top}
 \newcommand{\listing}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
+\renewcommand{\footnotesize}{\normalsize}
+
+%\fboxsep=0mm%padding thickness
+%\fboxrule=1pt%border thickness
 
 %\setcounter{tocdepth}{2}
 
@@ -54,8 +59,8 @@
 \clearpage
 \subfile{method}
 
-%\clearpage
-%\subfile{implementation}
+\clearpage
+\subfile{implementation}
 
 %\clearpage
 %\subfile{evaluation}
