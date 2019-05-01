@@ -13,4 +13,7 @@ The source code for all use cases will be compiled to optimized JavaScript in th
 
 This thesis examines the following research question: \textbf{In which use cases does WebAssembly provide a significant performance improvement?}
 
-The hypothesis is that WebAssembly has a significantly higher performance ($\alpha = 0,01$) than asm.js in use cases where the computational time complexity is high, such as mining crypto currency \parencite{RuthZimmermannWolsingHohlfeld2018} or calculating cryptographic hashes.
+% WebAssembly is created to be fast(er than asm.js) \parencite{HaasRossbergSchuffTitzerHolmanGohmanWagnerZakaiBastien2017} so releasing it while being slower is enough to consider it ok (as a physiological variable) to do one-sided tests?
+
+% The (alternative) hypothesis
+The (alternative) hypothesis $H_{1}$ is that WebAssembly has a significantly higher performance ($\alpha = 0.01$) than asm.js in use cases where the computational time complexity is high, such as mining crypto currency \parencite{RuthZimmermannWolsingHohlfeld2018} or calculating cryptographic hashes. The null hypothesis $H_{0}$ is that WebAssembly does \emph{not} have a significantly higher performance than asm.js.
