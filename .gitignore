@@ -2,7 +2,7 @@
 thesis.pdf
 *.gdoc
 *.aux
-comments.tex
+notes.txt
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
