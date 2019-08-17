@@ -1,0 +1,10 @@
+...
+<script>
+(async () => {
+  const {instance} = await WebAssembly.instantiateStreaming(fetch('membrane.wasm'));
+  console.log(instance.exports._case1());
+  console.log(instance.exports._case2());
+})();
+</script>
+<script src="membrane.asm.js"></script>
+...

@@ -22,7 +22,7 @@ As another way to try to optimize JavaScript \textcite{ParkJungMoon2015,ZhuykovV
 
 JavaScript does not have a static type system \parencite{Park2014}. TypeScript is a superset of JavaScript that adds type information \parencite{DeWolffHage2017}. Type information allows the programmer to see mistakes sooner during the development phase rather than later in runtime. In Listing \ref{listing:typescript} the JavaScript function \texttt{isPrime} has been enhanced with type information.
 
-\lstinputlisting[label=listing:typescript,language=JavaScript,caption=prime.ts]{../Listings/isprime.ts}
+\lstinputlisting[label=listing:typescript,language=JavaScript,caption=prime.ts]{listings/isprime.ts}
 
 Before TypeScript is published as part of a web site it is transformed to regular JavaScript using the TypeScript compiler \parencite{ReiserBlaser2017}. This does thus not directly solve the problem of performance, but decreases the number of runtime errors, and enables future backend optimizations such as improved guesses by the JIT-compiler.
 
@@ -30,7 +30,7 @@ Before TypeScript is published as part of a web site it is transformed to regula
 
 Another approach to optimize JavaScript is asm.js which is a subset of JavaScript focused on performance \parencite{Zakai2018}. If the browser understands asm.js it will skip certain steps in the JavaScript engine designed to optimize ''normal'' JavaScript, as it knows that asm.js is already optimized in certain ways. \textcite{Zakai2018} describes the idea behind asm.js as removing the dynamic and complex parts of JavaScript and thus ending up with a subset that is more easily optimized by the JavaScript engines.
 
-\lstinputlisting[label=asmjs,language=JavaScript,caption=asm.js]{../Listings/asm.js}
+\lstinputlisting[label=asmjs,language=JavaScript,caption=asm.js]{listings/asm.js}
 
 Listing \ref{asmjs} shows an implementation of a string calculation length function written in asm.js containing two prominent differences between asm.js and regular JavaScript. On line 2, 6, and 8 a bitwise operator \texttt{|0} is used. The operator has no effect on the value of the result but provides a hint to the JavaScript engine that the result is of the type signed integer which is information that can be used by the JavaScript engine to optimize the performance \parencite{Zakai2018}. The use of \texttt{MEM8[]} on line 5 is another way to increase the performance in asm.js. In asm.js much of the memory is written to and read from a type buffer instead of relying on the slower garbage collector provided by the JavaScript engine \parencite{Zakai2011}.
 
